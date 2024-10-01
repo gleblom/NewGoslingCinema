@@ -26,16 +26,5 @@ namespace NewGoslingCinema
             }
             return films;
         }
-        //public static void ImageToByte(List<Film> films)
-        //{
-        //    for(int i = 0; i < 6; i++)
-        //    {
-        //        BitmapImage bitmap = new BitmapImage();
-        //        bitmap.BeginInit();
-        //        bitmap.UriSource = new Uri(films[i].image, UriKind.Absolute);
-        //        bitmap.EndInit();
-        //        films[i].img = bitmap;
-        //    }
-        //}
     }
 }
