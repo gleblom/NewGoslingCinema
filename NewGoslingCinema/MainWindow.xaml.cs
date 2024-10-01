@@ -15,7 +15,9 @@ using System.Windows.Shapes;
 
 namespace NewGoslingCinema
 {
-
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
     public partial class MainWindow : Window
     {
         public List<Film> films = Film.GetFilms();
