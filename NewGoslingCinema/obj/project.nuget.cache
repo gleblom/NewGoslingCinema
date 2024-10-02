@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "bHczEaz/2Ohzeka2zq0S2KgZQ60UAg6WPGB+MV3q4h9xC8rJzII7grJgZXeeAPKxhb2PrJ7+G+BUeqp5Wy46lA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\glebl\\source\\repos\\NewGoslingCinema\\NewGoslingCinema\\NewGoslingCinema.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\glebl\\.nuget\\packages\\htmlagilitypack\\1.11.66\\htmlagilitypack.1.11.66.nupkg.sha512"
+  ],
+  "logs": []
+}
