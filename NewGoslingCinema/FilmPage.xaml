@@ -1,0 +1,16 @@
+﻿<Window x:Class="NewGoslingCinema.FilmPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NewGoslingCinema"
+        mc:Ignorable="d"
+        Title="FilmPage" Height="536" Width="696">
+    <Grid>
+        <Image x:Name="Poster" HorizontalAlignment="Left" Height="481" Margin="10,10,0,0" VerticalAlignment="Top" Width="279"/>
+        <Label x:Name="filmname" Content="Label" HorizontalAlignment="Left" Margin="406,10,0,0" VerticalAlignment="Top" FontSize="72" FontWeight="Bold" RenderTransformOrigin="0.783,0.52"/>
+        <Label x:Name="year" Content="Label" HorizontalAlignment="Left" Margin="468,121,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label x:Name="genre" Content="Label" HorizontalAlignment="Left" Margin="468,168,0,0" VerticalAlignment="Top" FontSize="24"/>
+
+    </Grid>
+</Window>

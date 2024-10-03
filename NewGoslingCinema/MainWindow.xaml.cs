@@ -39,14 +39,20 @@ namespace NewGoslingCinema
             {
                 Image image = new Image();
                 image.Source = films[i].image;
+                image.MouseDown += Image_MouseDown;
                 sp.Children.Add(image);
             }
             Scroll.Content = sp; 
         }
-        private void Image_MouseDown(object sender, MouseEventArgs e)
-        {
 
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Image image = sender as Image;
+            FilmPage page = new FilmPage();
+            page.Show();
+            page.Poster.Source = image.Source;
+
+            
         }
-        
     }
 }

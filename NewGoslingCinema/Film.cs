@@ -26,5 +26,16 @@ namespace NewGoslingCinema
             }
             return films;
         }
+        public static Tuple<string, string, string> Find(List<Film> films, BitmapImage image)
+        {
+            foreach(var f in films)
+            {
+                if (f.image == image)
+                {
+                    return Tuple.Create(f.name, f.genre, f.otherInfo);
+                }
+            }
+            return Tuple.Create("", "", "");
+        }
     }
 }
