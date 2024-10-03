@@ -29,8 +29,24 @@ namespace NewGoslingCinema
             InitializeComponent();
             Parser.GetName(films);
             Parser.Image(films);
-            Gool.Source = films[1].image;
+            CreateImages(films);
 
         }
+        private void CreateImages(List<Film> films)
+        {
+            var sp = new StackPanel();
+            for (int i = 0; i <films.Count; i++)
+            {
+                Image image = new Image();
+                image.Source = films[i].image;
+                sp.Children.Add(image);
+            }
+            Scroll.Content = sp; 
+        }
+        private void Image_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
+        
     }
 }

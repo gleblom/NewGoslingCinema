@@ -47,3 +47,9 @@ C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5
 C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\NewGoslingCinema.pdb
 C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\NewGoslingCinema.genruntimeconfig.cache
 C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\ref\NewGoslingCinema.dll
+C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\bin\Debug\net5.0-windows\System.Data.SqlClient.dll
+C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\bin\Debug\net5.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\bin\Debug\net5.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\bin\Debug\net5.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\bin\Debug\net5.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
