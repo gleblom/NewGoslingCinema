@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         Title="FilmPage" Height="536" Width="696">
     <Grid>
-        <Image x:Name="Poster" HorizontalAlignment="Left" Height="481" Margin="10,10,0,0" VerticalAlignment="Top" Width="279"/>
-        <Label x:Name="filmname" Content="Label" HorizontalAlignment="Left" Margin="406,10,0,0" VerticalAlignment="Top" FontSize="72" FontWeight="Bold" RenderTransformOrigin="0.783,0.52"/>
-        <Label x:Name="year" Content="Label" HorizontalAlignment="Left" Margin="468,121,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label x:Name="genre" Content="Label" HorizontalAlignment="Left" Margin="468,168,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Image RenderOptions.BitmapScalingMode="HighQuality" x:Name="Poster" HorizontalAlignment="Left" Height="479" Margin="10,27,0,0" VerticalAlignment="Top" Width="279"/>
+        <Label x:Name="genre" Content="Label" HorizontalAlignment="Left" Margin="441,176,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <TextBlock x:Name="filmname" HorizontalAlignment="Left" Margin="365,10,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" FontWeight="Bold"/>
+        <TextBlock x:Name="year" HorizontalAlignment="Left" Margin="425,128,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24"/>
 
     </Grid>
 </Window>

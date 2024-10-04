@@ -12,7 +12,7 @@ namespace NewGoslingCinema
     class Parser
     {
         public static string url = "https://www.ivi.ru/person/rajan_gosling";
-        public static HtmlDocument GetDocument()
+        public static HtmlDocument GetDocument(string url)
         {
             HtmlWeb web = new HtmlWeb();
             HtmlDocument doc = web.Load(url);
@@ -21,7 +21,7 @@ namespace NewGoslingCinema
 
         public static void GetName(List<Film> films)
         {
-            HtmlDocument doc = GetDocument();
+            HtmlDocument doc = GetDocument(url);
             HtmlNodeCollection names = doc.DocumentNode.SelectNodes("//span[contains(@class, 'nbl-slimPosterBlock__titleText')]");
             int i = 0;
             foreach (var name in names)
@@ -57,7 +57,7 @@ namespace NewGoslingCinema
         //}
         public static void Image(List<Film> films)
         {
-            HtmlDocument doc = GetDocument();
+            HtmlDocument doc = GetDocument(url);
             HtmlNodeCollection Images = doc.DocumentNode.SelectNodes("//div[contains(@class, 'nbl-poster__imageWrapper')]" +
                 "/picture/img");
             int i = 0;
@@ -77,7 +77,7 @@ namespace NewGoslingCinema
         public static List<string> GetLinks()
         {
             var filmLinks = new List<string>();
-            HtmlDocument doc = GetDocument();
+            HtmlDocument doc = GetDocument(url);
             HtmlNodeCollection linkNodes = doc.DocumentNode.SelectNodes("//div[contains(@class, 'ivi-carousel-item ivi-carousel-item-type_poster')]/a");
             var baseUri = new Uri(url);
             foreach (var link in linkNodes)
@@ -92,14 +92,15 @@ namespace NewGoslingCinema
             int i = 0;
             foreach (var url in urls)
             {
-                HtmlDocument document = GetDocument();
-                var title = "//h1[contains(@class, '__6mkZ0sr_')]";
-                var gen = "//span[contains(@test-id, 'meta_genre')]";
-                var year = "//span[contains(@test-id, 'meta_release_date')]"; 
-                films[i].name = document.DocumentNode.SelectSingleNode(title).InnerText;
-                films[i].genre = document.DocumentNode.SelectSingleNode(gen).InnerText;
-                films[i].otherInfo = document.DocumentNode.SelectSingleNode(year).InnerText;
-                i++;
+                if (i != 6)
+                {
+                    HtmlDocument document = GetDocument(url);
+                    //var gen = "//span[contains(@test-id, 'meta_genre')]";
+                    var year = "//div[contains(@class, 'watchParams__item')]/a[contains(@class, 'nbl-link nbl-link_style_wovou')]";
+                    //films[i].genre = document.DocumentNode.SelectSingleNode(gen).InnerText;
+                    films[i].otherInfo = document.DocumentNode.SelectSingleNode(year).InnerText;
+                    i++;
+                }
             }
         }
     }
