@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="518" Width="900">
     <Grid Background="#FF4F4FD1">
-        <TabControl>
+        <TabControl Background="#FF0E0A68">
             <TabItem Header="TabItem">
                 <Grid>
                     <Grid.Background>

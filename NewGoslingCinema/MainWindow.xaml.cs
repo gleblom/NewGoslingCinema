@@ -22,6 +22,7 @@ namespace NewGoslingCinema
     {
         public List<Film> films = Film.GetFilms();
         public List<string> links = Parser.GetLinks();
+        public List<FilmPage> pages = new List<FilmPage>();
 
 
         public MainWindow()
@@ -45,13 +46,28 @@ namespace NewGoslingCinema
                 image.MouseDown += Image_MouseDown;
                 sp.Children.Add(image);
             }
-            Scroll.Content = sp; 
+            Scroll.Content = sp;
         }
 
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            Image image = sender as Image;
+            if(pages.Count != 0)
+            {
+                pages[0].Close();
+                pages.Clear();
+                Image image = sender as Image;
+                CreateFilmPage(image);
+            }
+            else
+            {
+                Image image = sender as Image;
+                CreateFilmPage(image);
+            }
+        }
+        private void CreateFilmPage(Image image)
+        {
             FilmPage page = new FilmPage();
+            pages.Add(page);
             BitmapImage bitmap = new BitmapImage();
             var s = Convert.ToString(image.Source);
             bitmap.BeginInit();
@@ -59,13 +75,10 @@ namespace NewGoslingCinema
             bitmap.EndInit();
             var info = Film.Find(films, bitmap);
             page.Show();
-
             page.Poster.Source = image.Source;
             page.filmname.Text = info.Item1;
             page.genre.Content = info.Item2;
             page.year.Text = info.Item3;
-
-            
         }
     }
 }

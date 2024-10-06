@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 
 
@@ -18,6 +15,7 @@ namespace NewGoslingCinema
         public string url { get; set; }
         public string otherInfo { get; set; }
         public BitmapImage hightQualityImage { get; set; }
+        public string year { get; set; }
 
         static DirectoryInfo dir = new DirectoryInfo
             ("C:/Users/glebl/source/repos/NewGoslingCinema/NewGoslingCinema/HighQualityPosters/");

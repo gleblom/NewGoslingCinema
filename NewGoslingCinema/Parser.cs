@@ -34,27 +34,6 @@ namespace NewGoslingCinema
 
             }
         }
-        //public static void GetInfo(string url, List<Film> films)
-        //{
-        //    var bookLinks = new List<string>();
-        //    HtmlDocument doc = GetDocument(url);
-        //    HtmlNodeCollection information = doc.DocumentNode.SelectNodes("//div[contains(@class, 'personFilmsList_itemOther')]/span");
-        //    int i = 0;
-        //    int j = 0;
-        //    foreach (var info in information)
-        //    {
-        //        if (info.Attributes["class"].Value == "personFilmsList_itemGenres ellipsis-1")
-        //        {
-        //            films[i].genre = info.InnerText;
-        //            i++;
-        //        }
-        //        if (info.Attributes["class"].Value == "personFilmsList_itemGen ellipsis-1")
-        //        {
-        //            films[j].otherInfo = info.InnerText;
-        //            j++;
-        //        }
-        //    }
-        //}
         public static void Image(List<Film> films)
         {
             HtmlDocument doc = GetDocument(url);
@@ -95,13 +74,14 @@ namespace NewGoslingCinema
                 if (i != 6)
                 {
                     HtmlDocument document = GetDocument(url);
-                    //var gen = "//span[contains(@test-id, 'meta_genre')]";
+                    var gen = "//span[contains(@test-id, 'meta_genre')]";
                     var year = "//div[contains(@class, 'watchParams__item')]/a[contains(@class, 'nbl-link nbl-link_style_wovou')]";
                     //films[i].genre = document.DocumentNode.SelectSingleNode(gen).InnerText;
-                    films[i].otherInfo = document.DocumentNode.SelectSingleNode(year).InnerText;
+                    films[i].year = document.DocumentNode.SelectSingleNode(year).InnerText;
                     i++;
                 }
             }
         }
+        
     }
 }
