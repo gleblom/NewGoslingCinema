@@ -29,11 +29,16 @@ namespace NewGoslingCinema
         {
             InitializeComponent();
             Parser.GetName(films);
-            Parser.Image(films);
-            Film.SetHqimage(films);
             Parser.GetFilmDetails(links, films);
+            Parser.Image(films);
+            Film.ToNormalText(films);
             CreateImages(films);
-            
+            //something.Content = Parser.ImgUrl[0];
+            //Parser.Image(films);
+            //Film.SetHqimage(films);
+            //Parser.GetFilmDetails(links, films);
+            //CreateImages(films);
+
 
         }
         private void CreateImages(List<Film> films)
@@ -42,7 +47,7 @@ namespace NewGoslingCinema
             for (int i = 0; i <films.Count; i++)
             {
                 Image image = new Image();
-                image.Source = films[i].hightQualityImage;
+                image.Source = films[i].image;
                 image.MouseDown += Image_MouseDown;
                 sp.Children.Add(image);
             }
@@ -78,7 +83,8 @@ namespace NewGoslingCinema
             page.Poster.Source = image.Source;
             page.filmname.Text = info.Item1;
             page.genre.Content = info.Item2;
-            page.year.Text = info.Item3;
+            page.year.Content = info.Item3;
+            page.info.Text = info.Item4;
         }
     }
 }

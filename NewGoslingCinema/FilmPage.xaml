@@ -5,12 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NewGoslingCinema"
         mc:Ignorable="d"
-        Title="FilmPage" Height="536" Width="696">
+        Title="FilmPage" Height="482" Width="822">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFFFE2E2" Offset="0"/>
+            <GradientStop Color="#FF195C9E" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
     <Grid>
-        <Image RenderOptions.BitmapScalingMode="HighQuality" x:Name="Poster" HorizontalAlignment="Left" Height="479" Margin="10,27,0,0" VerticalAlignment="Top" Width="279"/>
-        <Label x:Name="genre" Content="Label" HorizontalAlignment="Left" Margin="441,176,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <TextBlock x:Name="filmname" HorizontalAlignment="Left" Margin="365,10,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" FontWeight="Bold"/>
-        <TextBlock x:Name="year" HorizontalAlignment="Left" Margin="425,128,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24"/>
+        <Image RenderOptions.BitmapScalingMode="HighQuality" x:Name="Poster" HorizontalAlignment="Left" Height="450" Margin="10,1,0,0" VerticalAlignment="Top" Width="279"/>
+        <Label x:Name="genre" Content="Label" HorizontalAlignment="Left" Margin="368,132,0,0" VerticalAlignment="Top" FontSize="24" RenderTransformOrigin="0.712,0.192"/>
+        <TextBlock x:Name="filmname" HorizontalAlignment="Left" Margin="295,1,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
+        <Label x:Name="year" Content="Label" HorizontalAlignment="Left" Margin="401,77,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <TextBlock x:Name="info" HorizontalAlignment="Left" Margin="295,179,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="261" Width="517" FontSize="16"/>
+        <Label Content="Жанр:" HorizontalAlignment="Left" Margin="292,132,0,0" VerticalAlignment="Top" Width="82" FontSize="24"/>
+        <TextBlock HorizontalAlignment="Left" Margin="297,50,0,0" Text="Год выпуска:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="104"/>
 
     </Grid>
 </Window>
