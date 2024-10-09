@@ -61,3 +61,5 @@ C:\Users\glebl\source\repos\NewGoslingCinema\NewGoslingCinema\bin\Debug\net5.0-w
 C:\Users\glebl\source\repos\NewGoslingCinema\NewGoslingCinema\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\glebl\source\repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\FilmPage.g.cs
 C:\Users\glebl\source\repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\FilmPage.baml
+C:\Users\glebl\source\repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\Authorization.g.cs
+C:\Users\glebl\source\repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\Authorization.baml
