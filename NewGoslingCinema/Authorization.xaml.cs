@@ -41,10 +41,13 @@ namespace NewGoslingCinema
                         MessageBox.Show("Неправильный пароль!");
                         break;
                     case 1:
-                        MessageBox.Show("Вход в аккаунт успешно выполнен!");
+                        IsEnabled = false;
                         Thread newWindowThread = new Thread(new ThreadStart(CreateWindow));
                         newWindowThread.SetApartmentState(ApartmentState.STA);
                         newWindowThread.Start();
+                        Loading.Visibility = Visibility.Visible;
+                        Loading.IsIndeterminate = true;
+                        load.Visibility = Visibility.Visible;
                         break;
                 }
             }
@@ -52,10 +55,12 @@ namespace NewGoslingCinema
         void CreateWindow()
         {
             var window = new MainWindow();
+            window.authorization = this;
             window.Show();
             System.Windows.Threading.Dispatcher.Run();
 
         }
+        delegate void Transfer();
 
 
     }

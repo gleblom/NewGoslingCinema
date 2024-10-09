@@ -23,6 +23,7 @@ namespace NewGoslingCinema
         public List<Film> films = Film.GetFilms();
         public List<string> links = Parser.GetLinks();
         public List<FilmPage> pages = new List<FilmPage>();
+        public Authorization authorization;
 
 
         public MainWindow()
@@ -85,6 +86,11 @@ namespace NewGoslingCinema
             page.genre.Content = info.Item2;
             page.year.Content = info.Item3;
             page.info.Text = info.Item4;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            authorization.Close();
         }
     }
 }

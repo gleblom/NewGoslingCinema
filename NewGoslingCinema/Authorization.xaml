@@ -6,15 +6,15 @@
         xmlns:local="clr-namespace:NewGoslingCinema"
         mc:Ignorable="d"
         Title="Authorization" Height="389" Width="340" ResizeMode="NoResize" Topmost="True" WindowStartupLocation="CenterOwner">
-    <Grid>
+    <Grid x:Name="grid">
         <TextBox x:Name="Login" HorizontalAlignment="Left" Margin="50,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="36"/>
         <Button x:Name="SignIn" Content="Войти" HorizontalAlignment="Left" Margin="125,278,0,0" VerticalAlignment="Top" Width="100" Height="28" FontSize="14" FontWeight="Bold" Click="SignIn_Click"/>
         <Label Content="Логин" HorizontalAlignment="Left" Margin="156,55,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <Label Content="Пароль" HorizontalAlignment="Left" Margin="148,138,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <PasswordBox x:Name="Password" HorizontalAlignment="Left" Margin="50,174,0,0" VerticalAlignment="Top" Width="250" Height="36"/>
         <TextBlock HorizontalAlignment="Left" Margin="86,347,0,0" Text="Нет аккаунта? Зарегистрироваться" TextWrapping="Wrap" VerticalAlignment="Top" Width="194"/>
-        <ProgressBar x:Name="Loading" HorizontalAlignment="Left" Height="21" Margin="50,140,0,0" VerticalAlignment="Top" Width="250"/>
-        <Label x:Name="load" Content="Выполняется вход в аккаунт..." HorizontalAlignment="Left" Margin="95,138,0,0" VerticalAlignment="Top" Width="179"/>
+        <ProgressBar x:Name="Loading" HorizontalAlignment="Left" Height="21" Margin="50,140,0,0" VerticalAlignment="Top" Width="250" Visibility="Collapsed"/>
+        <Label x:Name="load" Content="Выполняется вход в аккаунт..." HorizontalAlignment="Left" Margin="95,138,0,0" VerticalAlignment="Top" Width="179" Visibility="Collapsed"/>
 
     </Grid>
 </Window>
