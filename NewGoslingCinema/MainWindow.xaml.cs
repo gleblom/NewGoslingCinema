@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Threading;
 
 namespace NewGoslingCinema
 {
@@ -26,7 +27,7 @@ namespace NewGoslingCinema
         public Authorization authorization;
 
 
-        public MainWindow()
+        public MainWindow(Authorization authorization)
         {
             InitializeComponent();
             Parser.GetName(films);
@@ -34,6 +35,7 @@ namespace NewGoslingCinema
             Parser.Image(films);
             Film.ToNormalText(films);
             CreateImages(films);
+            this.authorization = authorization;
             //something.Content = Parser.ImgUrl[0];
             //Parser.Image(films);
             //Film.SetHqimage(films);
@@ -92,5 +94,8 @@ namespace NewGoslingCinema
         {
             authorization.Close();
         }
+
+
+
     }
 }
