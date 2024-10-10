@@ -35,7 +35,7 @@ namespace NewGoslingCinema
                 switch (i)
                 {
                     case -1:
-                        MessageBox.Show("Такого аккаунта не существует");
+                        MessageBox.Show("Такого аккаунта не существует!");
                         break;
                     case 0:
                         MessageBox.Show("Неправильный пароль!");

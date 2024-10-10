@@ -10,7 +10,7 @@ namespace NewGoslingCinema
 {
     class SqlClass
     {
-        static string str = "Data Source=510-013;Initial Catalog=Cinema;Integrated Security=True;Encrypt=True; TrustServerCertificate=True";
+        static string str = "Data Source=DESKTOP-1U9FDH3;Initial Catalog=NewCinema;Integrated Security=True";
         static SqlConnection con;
         static SqlCommand com;
         static SqlDataReader reader;
