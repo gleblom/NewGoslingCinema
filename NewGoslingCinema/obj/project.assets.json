@@ -2,17 +2,68 @@
   "version": 3,
   "targets": {
     "net5.0-windows7.0": {
+      "Extended.Wpf.Toolkit/4.6.1": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Xceed.Wpf.AvalonDock.Themes.Aero.dll": {},
+          "lib/net5.0/Xceed.Wpf.AvalonDock.Themes.Metro.dll": {},
+          "lib/net5.0/Xceed.Wpf.AvalonDock.Themes.VS2010.dll": {},
+          "lib/net5.0/Xceed.Wpf.AvalonDock.dll": {},
+          "lib/net5.0/Xceed.Wpf.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Xceed.Wpf.AvalonDock.Themes.Aero.dll": {},
+          "lib/net5.0/Xceed.Wpf.AvalonDock.Themes.Metro.dll": {},
+          "lib/net5.0/Xceed.Wpf.AvalonDock.Themes.VS2010.dll": {},
+          "lib/net5.0/Xceed.Wpf.AvalonDock.dll": {},
+          "lib/net5.0/Xceed.Wpf.Toolkit.dll": {}
+        },
+        "resource": {
+          "lib/net5.0/cs-CZ/Xceed.Wpf.AvalonDock.resources.dll": {
+            "locale": "cs-CZ"
+          },
+          "lib/net5.0/de/Xceed.Wpf.AvalonDock.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net5.0/es/Xceed.Wpf.AvalonDock.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net5.0/fr/Xceed.Wpf.AvalonDock.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net5.0/hu/Xceed.Wpf.AvalonDock.resources.dll": {
+            "locale": "hu"
+          },
+          "lib/net5.0/it/Xceed.Wpf.AvalonDock.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net5.0/ja-JP/Xceed.Wpf.AvalonDock.resources.dll": {
+            "locale": "ja-JP"
+          },
+          "lib/net5.0/pt-BR/Xceed.Wpf.AvalonDock.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/net5.0/ro/Xceed.Wpf.AvalonDock.resources.dll": {
+            "locale": "ro"
+          },
+          "lib/net5.0/ru/Xceed.Wpf.AvalonDock.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net5.0/sv/Xceed.Wpf.AvalonDock.resources.dll": {
+            "locale": "sv"
+          },
+          "lib/net5.0/zh-Hans/Xceed.Wpf.AvalonDock.resources.dll": {
+            "locale": "zh-Hans"
+          }
+        }
+      },
       "HtmlAgilityPack/1.11.66": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/HtmlAgilityPack.dll": {
-            "related": ".deps.json;.pdb;.xml"
-          }
+          "lib/netstandard2.0/HtmlAgilityPack.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/HtmlAgilityPack.dll": {
-            "related": ".deps.json;.pdb;.xml"
-          }
+          "lib/netstandard2.0/HtmlAgilityPack.dll": {}
         }
       },
       "Microsoft.NETCore.Platforms/3.1.0": {
@@ -31,14 +82,10 @@
           "System.Security.Principal.Windows": "4.7.0"
         },
         "compile": {
-          "ref/netstandard2.0/_._": {
-            "related": ".xml"
-          }
+          "ref/netstandard2.0/_._": {}
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.Win32.Registry.dll": {
-            "related": ".xml"
-          }
+          "lib/netstandard2.0/Microsoft.Win32.Registry.dll": {}
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netstandard2.0/Microsoft.Win32.Registry.dll": {
@@ -94,14 +141,10 @@
           "runtime.native.System.Data.SqlClient.sni": "4.7.0"
         },
         "compile": {
-          "ref/netcoreapp2.1/System.Data.SqlClient.dll": {
-            "related": ".xml"
-          }
+          "ref/netcoreapp2.1/System.Data.SqlClient.dll": {}
         },
         "runtime": {
-          "lib/netcoreapp2.1/System.Data.SqlClient.dll": {
-            "related": ".xml"
-          }
+          "lib/netcoreapp2.1/System.Data.SqlClient.dll": {}
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netcoreapp2.1/System.Data.SqlClient.dll": {
@@ -121,14 +164,10 @@
           "System.Security.Principal.Windows": "4.7.0"
         },
         "compile": {
-          "ref/netstandard2.0/_._": {
-            "related": ".xml"
-          }
+          "ref/netstandard2.0/_._": {}
         },
         "runtime": {
-          "lib/netstandard2.0/System.Security.AccessControl.dll": {
-            "related": ".xml"
-          }
+          "lib/netstandard2.0/System.Security.AccessControl.dll": {}
         },
         "runtimeTargets": {
           "runtimes/win/lib/netcoreapp2.0/System.Security.AccessControl.dll": {
@@ -140,14 +179,10 @@
       "System.Security.Principal.Windows/4.7.0": {
         "type": "package",
         "compile": {
-          "ref/netcoreapp3.0/_._": {
-            "related": ".xml"
-          }
+          "ref/netcoreapp3.0/_._": {}
         },
         "runtime": {
-          "lib/netstandard2.0/System.Security.Principal.Windows.dll": {
-            "related": ".xml"
-          }
+          "lib/netstandard2.0/System.Security.Principal.Windows.dll": {}
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netcoreapp2.1/System.Security.Principal.Windows.dll": {
@@ -163,6 +198,56 @@
     }
   },
   "libraries": {
+    "Extended.Wpf.Toolkit/4.6.1": {
+      "sha512": "LZlLLGZP08mJufT/rjCiURP0owr34ZuAvcyzk5xgsvSMiKJRQvK7oaWUP7IXONE4BwCXREwKhtl34nUS8+RGQg==",
+      "type": "package",
+      "path": "extended.wpf.toolkit/4.6.1",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "Xceed_Logo_Retina-400x400.png",
+        "extended.wpf.toolkit.4.6.1.nupkg.sha512",
+        "extended.wpf.toolkit.nuspec",
+        "lib/net40/Xceed.Wpf.AvalonDock.Themes.Aero.dll",
+        "lib/net40/Xceed.Wpf.AvalonDock.Themes.Metro.dll",
+        "lib/net40/Xceed.Wpf.AvalonDock.Themes.VS2010.dll",
+        "lib/net40/Xceed.Wpf.AvalonDock.dll",
+        "lib/net40/Xceed.Wpf.Toolkit.dll",
+        "lib/net40/cs-CZ/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/de/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/es/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/fr/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/hu/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/it/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/ja-JP/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/nl-BE/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/pt-BR/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/ro/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/ru/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/sv/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/zh-Hans/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net5.0/Xceed.Wpf.AvalonDock.Themes.Aero.dll",
+        "lib/net5.0/Xceed.Wpf.AvalonDock.Themes.Metro.dll",
+        "lib/net5.0/Xceed.Wpf.AvalonDock.Themes.VS2010.dll",
+        "lib/net5.0/Xceed.Wpf.AvalonDock.dll",
+        "lib/net5.0/Xceed.Wpf.Toolkit.dll",
+        "lib/net5.0/cs-CZ/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net5.0/de/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net5.0/es/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net5.0/fr/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net5.0/hu/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net5.0/it/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net5.0/ja-JP/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net5.0/pt-BR/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net5.0/ro/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net5.0/ru/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net5.0/sv/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net5.0/zh-Hans/Xceed.Wpf.AvalonDock.resources.dll",
+        "tools/install.ps1"
+      ]
+    },
     "HtmlAgilityPack/1.11.66": {
       "sha512": "kRlJ/rnvDzSPZv294uR+k3IR04eQO1IxdYJuUPPFETZ0W2NDDRiuZlfgYaDX17OVvODJFWj6+lsMOko/Xj5XVQ==",
       "type": "package",
@@ -524,39 +609,32 @@
   },
   "projectFileDependencyGroups": {
     "net5.0-windows7.0": [
+      "Extended.Wpf.Toolkit >= 4.6.1",
       "HtmlAgilityPack >= 1.11.66",
       "System.Data.SqlClient >= 4.8.6"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\all_local\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\glebl\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\all_local\\Source\\Repos\\NewGoslingCinema\\NewGoslingCinema\\NewGoslingCinema.csproj",
+      "projectUniqueName": "C:\\Users\\glebl\\source\\repos\\NewGoslingCinema\\NewGoslingCinema\\NewGoslingCinema.csproj",
       "projectName": "NewGoslingCinema",
-      "projectPath": "C:\\Users\\all_local\\Source\\Repos\\NewGoslingCinema\\NewGoslingCinema\\NewGoslingCinema.csproj",
-      "packagesPath": "C:\\Users\\all_local\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\all_local\\Source\\Repos\\NewGoslingCinema\\NewGoslingCinema\\obj\\",
+      "projectPath": "C:\\Users\\glebl\\source\\repos\\NewGoslingCinema\\NewGoslingCinema\\NewGoslingCinema.csproj",
+      "packagesPath": "C:\\Users\\glebl\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\glebl\\source\\repos\\NewGoslingCinema\\NewGoslingCinema\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\all_local\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\glebl\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net5.0-windows"
+        "net5.0-windows7.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -569,17 +647,16 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
       "net5.0-windows7.0": {
         "targetAlias": "net5.0-windows",
         "dependencies": {
+          "Extended.Wpf.Toolkit": {
+            "target": "Package",
+            "version": "[4.6.1, )"
+          },
           "HtmlAgilityPack": {
             "target": "Package",
             "version": "[1.11.66, )"
@@ -595,8 +672,7 @@
           "net47",
           "net471",
           "net472",
-          "net48",
-          "net481"
+          "net48"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -608,7 +684,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,0 +1,18 @@
+﻿<Window x:Class="NewGoslingCinema.AdminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xc="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:NewGoslingCinema"
+        mc:Ignorable="d"
+        Title="AdminWindow" Height="380" Width="548">
+    <Grid>
+        <xc:DateTimePicker x:Name="DateTime" Margin="279,10,10,218">
+
+        </xc:DateTimePicker>
+        <ListBox x:Name="FilmList" Margin="279,151,10,47"/>
+        <DataGrid x:Name="Sessions" Margin="10,10,274,47"/>
+        <Button x:Name="Insert" Content="Добавить" HorizontalAlignment="Left" Margin="344,322,0,0" VerticalAlignment="Top" Width="128" Click="Insert_Click"/>
+    </Grid>
+</Window>

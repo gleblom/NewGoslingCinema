@@ -22,8 +22,9 @@ namespace NewGoslingCinema
     public partial class MainWindow : Window
     {
         public List<Film> films = Film.GetFilms();
-        public List<string> links = Parser.GetLinks();
+        public List<string> link = Parser.GetLinks();
         public List<FilmPage> pages = new List<FilmPage>();
+
         public Authorization authorization;
 
 
@@ -31,10 +32,8 @@ namespace NewGoslingCinema
         {
             InitializeComponent();
             Parser.GetName(films);
-            Parser.GetFilmDetails(links, films);
-            Parser.Image(films);
-            Film.ToNormalText(films);
-            CreateImages(films);
+            //Parser.GetFilmDetails(links, films);
+            //Film.ToNormalText(films);
             this.authorization = authorization;
             //something.Content = Parser.ImgUrl[0];
             //Parser.Image(films);
@@ -44,6 +43,11 @@ namespace NewGoslingCinema
 
 
         }
+        //public string[] ToList()
+        //{
+        //    string[] links = link.Result.ToArray();
+        //    return links;
+        //}
         private void CreateImages(List<Film> films)
         {
             var sp = new StackPanel();
