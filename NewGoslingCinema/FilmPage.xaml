@@ -13,6 +13,12 @@
         </LinearGradientBrush>
     </Window.Background>
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF28232F" Offset="1"/>
+                <GradientStop Color="#FF84749C"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Image RenderOptions.BitmapScalingMode="HighQuality" x:Name="Poster" HorizontalAlignment="Left" Height="450" Margin="10,1,0,0" VerticalAlignment="Top" Width="279"/>
         <Label x:Name="genre" Content="Label" HorizontalAlignment="Left" Margin="368,132,0,0" VerticalAlignment="Top" FontSize="24" RenderTransformOrigin="0.712,0.192"/>
         <TextBlock x:Name="filmname" HorizontalAlignment="Left" Margin="295,1,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
@@ -20,6 +26,7 @@
         <TextBlock x:Name="info" HorizontalAlignment="Left" Margin="295,179,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="261" Width="517" FontSize="16"/>
         <Label Content="Жанр:" HorizontalAlignment="Left" Margin="292,132,0,0" VerticalAlignment="Top" Width="82" FontSize="24"/>
         <TextBlock HorizontalAlignment="Left" Margin="297,50,0,0" Text="Год выпуска:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="104"/>
+        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="574,17,10,311" Background="#FF84749C"/>
 
     </Grid>
 </Window>

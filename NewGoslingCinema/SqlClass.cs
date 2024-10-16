@@ -11,13 +11,13 @@ namespace NewGoslingCinema
 {
     class SqlClass
     {
-        static string str = "Data Source=DESKTOP-1U9FDH3;Initial Catalog=NewCinema;Integrated Security=True";
+        static string str = "Data Source=510-013;Initial Catalog=NewCinema;Integrated Security=True;Encrypt=False";
         static SqlConnection con;
         static SqlCommand com;
         static SqlDataReader reader;
 
         public static SqlConnection ConnectTo(SqlConnection cnn)
-        {
+        {   
             cnn = new SqlConnection(str);
             return cnn;
         }
@@ -62,9 +62,10 @@ namespace NewGoslingCinema
             }
             con = null;
             com = null;
+            
 
         }
-        public static async Task<DataTable> Sessione()
+        public static async void Sessione(DataGrid grid)
         {
             con = ConnectTo(con);
             SqlDataAdapter adapter = new SqlDataAdapter();
@@ -76,7 +77,47 @@ namespace NewGoslingCinema
                 com.CommandType = CommandType.StoredProcedure;
                 adapter.SelectCommand = com;
                 adapter.Fill(table);
-                return table;
+                grid.DataContext = table;
+            }
+            con = null;
+            com = null;
+        }
+        public static async void Delete(object id)
+        {
+            con = ConnectTo(con);
+            using (con) 
+            {
+                await con.OpenAsync();
+                com = new SqlCommand("DeleteSession", con);
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.AddWithValue("@ID", id);
+                com.ExecuteNonQuery();
+            }
+            con = null;
+            com = null;
+        }
+        public static async void ShowSessions(string film, ListBox list)
+        {
+            con = ConnectTo(con);
+            using (con) 
+            {
+                await con.OpenAsync();
+                com = new SqlCommand("FilmPage", con);
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.AddWithValue("@Film", film);
+                reader = await com.ExecuteReaderAsync();
+                if (reader.HasRows)
+                {
+                    while (await reader.ReadAsync()) 
+                    {
+                        string t = reader.GetString(0);
+                        string d = reader.GetString(1);
+                        list.Items.Add(d + t);
+                    }
+                }
+                await reader.CloseAsync();
+                con = null;
+                com = null;
             }
         }
 

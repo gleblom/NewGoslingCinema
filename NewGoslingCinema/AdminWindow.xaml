@@ -8,11 +8,12 @@
         mc:Ignorable="d"
         Title="AdminWindow" Height="380" Width="548">
     <Grid>
-        <xc:DateTimePicker x:Name="DateTime" Margin="279,10,10,218">
+        <xc:DateTimePicker x:Name="DateTime" Margin="299,10,10,218">
 
         </xc:DateTimePicker>
-        <ListBox x:Name="FilmList" Margin="279,151,10,47"/>
-        <DataGrid x:Name="Sessions" Margin="10,10,274,47"/>
-        <Button x:Name="Insert" Content="Добавить" HorizontalAlignment="Left" Margin="344,322,0,0" VerticalAlignment="Top" Width="128" Click="Insert_Click"/>
+        <ListBox x:Name="FilmList" Margin="299,151,10,47"/>
+        <DataGrid ItemsSource="{Binding}" SelectionMode="Single" IsReadOnly="True" x:Name="Sessions" Margin="10,10,254,47"/>
+        <Button x:Name="Insert" Content="Добавить" HorizontalAlignment="Left" Margin="353,319,0,0" VerticalAlignment="Top" Width="128" Click="Insert_Click"/>
+        <Button x:Name="Delete" Content="Удалить" HorizontalAlignment="Left" Margin="88,317,0,0" VerticalAlignment="Top" Width="128" Click="Delete_Click"/>
     </Grid>
 </Window>

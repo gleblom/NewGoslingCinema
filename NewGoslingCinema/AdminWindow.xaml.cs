@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -30,7 +31,7 @@ namespace NewGoslingCinema
             InitializeComponent();
             Parser.GetName(films);
             FillFilms();
-            Sessions.DataContext = SqlClass.Sessione();
+            SqlClass.Sessione(Sessions);
         }
         private void FillFilms()
         {
@@ -53,11 +54,29 @@ namespace NewGoslingCinema
                 date = regex.Match(dates).ToString();
                 time = r.Match(dates).ToString();
                 SqlClass.AddSession(film, time, date);
-                Sessions.DataContext = SqlClass.Sessione();
+                SqlClass.Sessione(Sessions);
             }
             else
             {
                 MessageBox.Show("Невозможно добавить сеанс!");
+            }
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                DataRowView item = (DataRowView)Sessions.SelectedItem;
+                if (item != null) 
+                {
+                    SqlClass.Delete(item["SessionID"]);
+                    SqlClass.Sessione(Sessions);
+                }
+
+            }
+            catch
+            {
+                MessageBox.Show("Выберите поле для удаления!");
             }
         }
     }
