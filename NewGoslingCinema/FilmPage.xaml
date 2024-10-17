@@ -26,7 +26,14 @@
         <TextBlock x:Name="info" HorizontalAlignment="Left" Margin="295,179,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="261" Width="517" FontSize="16"/>
         <Label Content="Жанр:" HorizontalAlignment="Left" Margin="292,132,0,0" VerticalAlignment="Top" Width="82" FontSize="24"/>
         <TextBlock HorizontalAlignment="Left" Margin="297,50,0,0" Text="Год выпуска:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="104"/>
-        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="574,17,10,311" Background="#FF84749C"/>
+        <ListBox x:Name="SessionList" d:ItemsSource="{Binding}" Margin="574,33,10,295" Background="#FF84749C">
+            <ListBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Name="Buy" Header="Купить" Click="Buy_Click"></MenuItem>
+                </ContextMenu>
+            </ListBox.ContextMenu>
+        </ListBox>
+        <Label Content="Сеансы:" HorizontalAlignment="Left" Margin="574,4,0,0" VerticalAlignment="Top" FontSize="16"/>
 
     </Grid>
 </Window>

@@ -19,9 +19,15 @@ namespace NewGoslingCinema
     /// </summary>
     public partial class FilmPage : Window
     {
+        public string name;
         public FilmPage()
         {
             InitializeComponent();
+        }
+
+        private void Buy_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

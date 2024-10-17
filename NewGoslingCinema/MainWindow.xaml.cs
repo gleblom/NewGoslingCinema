@@ -22,27 +22,27 @@ namespace NewGoslingCinema
     public partial class MainWindow : Window
     {
         public List<Film> films = Film.GetFilms();
-        public List<string> link = Parser.GetLinks();
+        public List<string> links = Parser.GetLinks();
         public List<FilmPage> pages = new List<FilmPage>();
+        public string name;
 
-        public Authorization authorization;
+        //public Authorization authorization;
 
 
-        public MainWindow(Authorization authorization)
+        public MainWindow()
         {
             InitializeComponent();
             Parser.GetName(films);
-            //Parser.GetFilmDetails(links, films);
-            //Film.ToNormalText(films);
-            this.authorization = authorization;
-            //something.Content = Parser.ImgUrl[0];
-            //Parser.Image(films);
+            Parser.GetFilmDetails(links, films);
+            Film.ToNormalText(films);
+            //something.Content = films[0].name;
+            Parser.Image(films);
             //Film.SetHqimage(films);
-            //Parser.GetFilmDetails(links, films);
-            //CreateImages(films);
+            CreateImages(films);
 
 
         }
+ 
         //public string[] ToList()
         //{
         //    string[] links = link.Result.ToArray();
@@ -92,11 +92,14 @@ namespace NewGoslingCinema
             page.genre.Content = info.Item2;
             page.year.Content = info.Item3;
             page.info.Text = info.Item4;
+            SqlClass.ShowSessions(info.Item1, page.SessionList);
+            page.name = name;
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            authorization.Close();
+            //authorization.Close();
         }
 
 

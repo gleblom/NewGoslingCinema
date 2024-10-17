@@ -110,8 +110,10 @@ namespace NewGoslingCinema
                 {
                     while (await reader.ReadAsync()) 
                     {
-                        string t = reader.GetString(0);
-                        string d = reader.GetString(1);
+                        TimeSpan timeValue = reader.GetTimeSpan(0);
+                        DateTime date = reader.GetDateTime(1);
+                        string t = timeValue.ToString();
+                        string d = date.ToShortDateString();
                         list.Items.Add(d + t);
                     }
                 }
