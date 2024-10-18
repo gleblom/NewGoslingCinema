@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Threading;
+using static System.Collections.Specialized.BitVector32;
 
 namespace NewGoslingCinema
 {
@@ -25,6 +26,7 @@ namespace NewGoslingCinema
         public List<string> links = Parser.GetLinks();
         public List<FilmPage> pages = new List<FilmPage>();
         public string name;
+        string session;
 
         //public Authorization authorization;
 
@@ -38,6 +40,7 @@ namespace NewGoslingCinema
             //something.Content = films[0].name;
             Parser.Image(films);
             //Film.SetHqimage(films);
+            
             CreateImages(films);
 
 
@@ -93,7 +96,7 @@ namespace NewGoslingCinema
             page.year.Content = info.Item3;
             page.info.Text = info.Item4;
             SqlClass.ShowSessions(info.Item1, page.SessionList);
-            page.name = name;
+            page.mainWindow = this;
 
         }
 
@@ -102,7 +105,42 @@ namespace NewGoslingCinema
             //authorization.Close();
         }
 
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            Cage.Items.Remove(Cage.SelectedItem);
+        }
 
+        private void Buy_Click(object sender, RoutedEventArgs e)
+        {
+            if (Cage.SelectedItem != null)
+            {
+                session = Cage.SelectedItem.ToString();
+                SqlClass.Tickets(session, name);
+                SqlClass.SelectTickets(name, Tickets);
+            }
+        }
+
+        private void Waste_Click(object sender, RoutedEventArgs e)
+        {
+            Cage.Items.Clear();
+        }
+
+        private void BuyAll_Click(object sender, RoutedEventArgs e)
+        {
+            if(Cage.Items.Count > 0)
+            {
+                foreach (var item in Cage.Items)
+                {
+                    session = item.ToString();
+                    SqlClass.Tickets(session, name);
+                }
+                SqlClass.SelectTickets(name, Tickets);
+            }
+            else
+            {
+                MessageBox.Show("Корзина пуста!");
+            }
+        }
 
     }
 }

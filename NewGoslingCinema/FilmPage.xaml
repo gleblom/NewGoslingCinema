@@ -27,11 +27,23 @@
         <Label Content="Жанр:" HorizontalAlignment="Left" Margin="292,132,0,0" VerticalAlignment="Top" Width="82" FontSize="24"/>
         <TextBlock HorizontalAlignment="Left" Margin="297,50,0,0" Text="Год выпуска:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="104"/>
         <ListBox x:Name="SessionList" d:ItemsSource="{Binding}" Margin="574,33,10,295" Background="#FF84749C">
-            <ListBox.ContextMenu>
-                <ContextMenu>
-                    <MenuItem Name="Buy" Header="Купить" Click="Buy_Click"></MenuItem>
-                </ContextMenu>
-            </ListBox.ContextMenu>
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="ContextMenu">
+                        <Setter.Value>
+                            <ContextMenu>
+                                <MenuItem Header="Добавить в корзину" Name="Buy">
+                                    <MenuItem.Style>
+                                        <Style TargetType="MenuItem">
+                                            <EventSetter Event="Click" Handler="Buy_Click"/>
+                                        </Style>
+                                    </MenuItem.Style>
+                                </MenuItem>
+                            </ContextMenu>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListBox.ItemContainerStyle>
         </ListBox>
         <Label Content="Сеансы:" HorizontalAlignment="Left" Margin="574,4,0,0" VerticalAlignment="Top" FontSize="16"/>
 

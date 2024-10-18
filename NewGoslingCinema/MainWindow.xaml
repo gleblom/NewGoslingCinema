@@ -28,7 +28,45 @@
                 </Grid>
             </TabItem>
             <TabItem Header="TabItem">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid>
+                    <Grid.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Black" Offset="1"/>
+                            <GradientStop Color="#FF425B8F" Offset="0"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
+                    <ListBox x:Name="Cage" d:ItemsSource="{Binding}" Margin="647,30,10,42">
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Setter Property="ContextMenu">
+                                    <Setter.Value>
+                                        <ContextMenu>
+                                            <MenuItem Header="Очистить" Name="Delete">
+                                                <MenuItem.Style>
+                                                    <Style TargetType="MenuItem">
+                                                        <EventSetter Event="Click" Handler="Delete_Click"/>
+                                                    </Style>
+                                                </MenuItem.Style>
+                                            </MenuItem>
+                                            <MenuItem Header="Купить" Name="Buy">
+                                                <MenuItem.Style>
+                                                    <Style TargetType="MenuItem">
+                                                        <EventSetter Event="Click" Handler="Buy_Click"/>
+                                                    </Style>
+                                                </MenuItem.Style>
+                                            </MenuItem>
+                                        </ContextMenu>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+                    </ListBox>
+                    <Label Content="Корзина" HorizontalAlignment="Left" Margin="718,-4,0,0" VerticalAlignment="Top" Width="95" FontSize="18"/>
+                    <Button x:Name="Waste" Content="Очистить всё" HorizontalAlignment="Left" Margin="647,444,0,0" VerticalAlignment="Top" Width="119" FontSize="16" Click="Waste_Click"/>
+                    <Button x:Name="BuyAll" Content="Купить всё" HorizontalAlignment="Left" Margin="773,444,0,0" VerticalAlignment="Top" Height="25" Width="111" FontSize="16" Click="BuyAll_Click"/>
+                    <ListBox x:Name="Tickets" d:ItemsSource="{Binding}" Margin="10,36,647,36"/>
+                    <Label Content="Список купленных билетов" HorizontalAlignment="Left" Margin="11,6,0,0" VerticalAlignment="Top" FontSize="18"/>
+                </Grid>
             </TabItem>
         </TabControl>
     </Grid>

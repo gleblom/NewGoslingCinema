@@ -57,7 +57,7 @@ namespace NewGoslingCinema
                 com.Parameters.AddWithValue("@Film", film);
                 com.Parameters.AddWithValue("@Time", time);
                 com.Parameters.AddWithValue("@Date", date);
-                com.ExecuteNonQuery();
+                await com.ExecuteNonQueryAsync();
 
             }
             con = null;
@@ -91,7 +91,7 @@ namespace NewGoslingCinema
                 com = new SqlCommand("DeleteSession", con);
                 com.CommandType = CommandType.StoredProcedure;
                 com.Parameters.AddWithValue("@ID", id);
-                com.ExecuteNonQuery();
+                await com.ExecuteNonQueryAsync();
             }
             con = null;
             com = null;
@@ -121,6 +121,43 @@ namespace NewGoslingCinema
                 con = null;
                 com = null;
             }
+        }
+        public static async void Tickets(string session, string userName)
+        {
+            con = ConnectTo(con);
+            using (con)
+            {
+                await con.OpenAsync();
+                com = new SqlCommand("Ticket", con);
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.AddWithValue("Session", session);
+                com.Parameters.AddWithValue("User", userName);
+                await com.ExecuteNonQueryAsync();
+            }
+            con = null;
+            com = null;
+        }
+        public static async void SelectTickets(string name, ListBox list)
+        {
+            con = ConnectTo(con);
+            using (con)
+            {
+                await con.OpenAsync();
+                com = new SqlCommand("SelectTickets", con);
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.AddWithValue("@User", name);
+                reader = await com.ExecuteReaderAsync();
+                if (reader.HasRows)
+                {
+                    while (await reader.ReadAsync())
+                    {
+                        list.Items.Add(reader.GetString(0));
+                    }
+                }
+            }
+            await reader.CloseAsync();
+            con = null;
+            com = null;
         }
 
     }

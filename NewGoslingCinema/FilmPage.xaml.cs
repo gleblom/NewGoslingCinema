@@ -19,7 +19,7 @@ namespace NewGoslingCinema
     /// </summary>
     public partial class FilmPage : Window
     {
-        public string name;
+        public MainWindow mainWindow;
         public FilmPage()
         {
             InitializeComponent();
@@ -27,7 +27,10 @@ namespace NewGoslingCinema
 
         private void Buy_Click(object sender, RoutedEventArgs e)
         {
-
+            if(SessionList.SelectedItem != null)
+            {
+                mainWindow.Cage.Items.Add(SessionList.SelectedItem);
+            }
         }
     }
 }

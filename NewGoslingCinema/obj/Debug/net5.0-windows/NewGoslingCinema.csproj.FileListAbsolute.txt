@@ -1,3 +1,11 @@
+C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\NewGoslingCinema.csproj.AssemblyReference.cache
+C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\AdminWindow.g.cs
+C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\Authorization.g.cs
+C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\FilmPage.g.cs
+C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\MainWindow.g.cs
+C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\App.g.cs
+C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\NewGoslingCinema_MarkupCompile.cache
+C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\NewGoslingCinema_MarkupCompile.lref
 C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\bin\Debug\net5.0-windows\NewGoslingCinema.exe
 C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\bin\Debug\net5.0-windows\NewGoslingCinema.deps.json
 C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\bin\Debug\net5.0-windows\NewGoslingCinema.runtimeconfig.json
@@ -28,14 +36,6 @@ C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\bin\Debug\net5
 C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\bin\Debug\net5.0-windows\runtimes\win-x86\native\sni.dll
 C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\bin\Debug\net5.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\NewGoslingCinema.csproj.AssemblyReference.cache
-C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\AdminWindow.g.cs
-C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\Authorization.g.cs
-C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\FilmPage.g.cs
-C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\MainWindow.g.cs
-C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\App.g.cs
-C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\NewGoslingCinema_MarkupCompile.cache
-C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\NewGoslingCinema_MarkupCompile.lref
 C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\AdminWindow.baml
 C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\Authorization.baml
 C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\FilmPage.baml
