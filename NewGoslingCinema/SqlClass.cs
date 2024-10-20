@@ -11,7 +11,9 @@ namespace NewGoslingCinema
 {
     class SqlClass
     {
-        static string str = "Data Source=510-013;Initial Catalog=NewCinema;Integrated Security=True;Encrypt=False";
+        static string str = "Data Source=DESKTOP-1U9FDH3;Initial Catalog=NewCinema;Integrated Security=True";
+        // Data Source=DESKTOP-1U9FDH3;Initial Catalog=NewCinema;Integrated Security=True
+        // Data Source=510-013;Initial Catalog=NewCinema;Integrated Security=True;Encrypt=False
         static SqlConnection con;
         static SqlCommand com;
         static SqlDataReader reader;
@@ -42,8 +44,8 @@ namespace NewGoslingCinema
                 }
                 await reader.CloseAsync();
             }
-            con = null;
             com = null;
+
             return -2;
         }
         public static async void AddSession(string film, string time, string date)
@@ -60,8 +62,8 @@ namespace NewGoslingCinema
                 await com.ExecuteNonQueryAsync();
 
             }
-            con = null;
             com = null;
+
             
 
         }
@@ -79,8 +81,8 @@ namespace NewGoslingCinema
                 adapter.Fill(table);
                 grid.DataContext = table;
             }
-            con = null;
             com = null;
+
         }
         public static async void Delete(object id)
         {
@@ -93,8 +95,8 @@ namespace NewGoslingCinema
                 com.Parameters.AddWithValue("@ID", id);
                 await com.ExecuteNonQueryAsync();
             }
-            con = null;
             com = null;
+
         }
         public static async void ShowSessions(string film, ListBox list)
         {
@@ -110,17 +112,18 @@ namespace NewGoslingCinema
                 {
                     while (await reader.ReadAsync()) 
                     {
+
                         TimeSpan timeValue = reader.GetTimeSpan(0);
                         DateTime date = reader.GetDateTime(1);
                         string t = timeValue.ToString();
                         string d = date.ToShortDateString();
-                        list.Items.Add(d + t);
+                        list.Items.Add("Дата: " + d + " Время: " + t);
                     }
                 }
                 await reader.CloseAsync();
-                con = null;
-                com = null;
+
             }
+            com = null;
         }
         public static async void Tickets(string session, string userName)
         {
@@ -130,11 +133,10 @@ namespace NewGoslingCinema
                 await con.OpenAsync();
                 com = new SqlCommand("Ticket", con);
                 com.CommandType = CommandType.StoredProcedure;
-                com.Parameters.AddWithValue("Session", session);
-                com.Parameters.AddWithValue("User", userName);
+                com.Parameters.AddWithValue("@Session", session);
+                com.Parameters.AddWithValue("@User", userName);
                 await com.ExecuteNonQueryAsync();
             }
-            con = null;
             com = null;
         }
         public static async void SelectTickets(string name, ListBox list)
@@ -154,9 +156,8 @@ namespace NewGoslingCinema
                         list.Items.Add(reader.GetString(0));
                     }
                 }
+                await reader.CloseAsync();
             }
-            await reader.CloseAsync();
-            con = null;
             com = null;
         }
 

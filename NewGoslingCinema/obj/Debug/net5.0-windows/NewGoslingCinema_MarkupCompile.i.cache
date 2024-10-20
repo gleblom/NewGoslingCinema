@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\
+C:\Users\glebl\source\repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\
 NewGoslingCinema
 none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
-C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\App.xaml
+C:\Users\glebl\source\repos\NewGoslingCinema\NewGoslingCinema\App.xaml
 42145532285
 
 11170323689
-200745188144
+200-2079684382
 AdminWindow.xaml;Authorization.xaml;FilmPage.xaml;MainWindow.xaml;
 
-True
+False
 

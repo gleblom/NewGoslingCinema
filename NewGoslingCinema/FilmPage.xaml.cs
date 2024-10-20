@@ -29,7 +29,7 @@ namespace NewGoslingCinema
         {
             if(SessionList.SelectedItem != null)
             {
-                mainWindow.Cage.Items.Add(SessionList.SelectedItem);
+                mainWindow.Cage.Items.Add("Фильм:" + filmname.Text + "," + SessionList.SelectedItem);
             }
         }
     }

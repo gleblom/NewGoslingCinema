@@ -25,8 +25,9 @@ namespace NewGoslingCinema
         public List<Film> films = Film.GetFilms();
         public List<string> links = Parser.GetLinks();
         public List<FilmPage> pages = new List<FilmPage>();
-        public string name;
+        public static string name;
         string session;
+        string film;
 
         //public Authorization authorization;
 
@@ -39,6 +40,7 @@ namespace NewGoslingCinema
             Film.ToNormalText(films);
             //something.Content = films[0].name;
             Parser.Image(films);
+            SqlClass.SelectTickets(name, Tickets);
             //Film.SetHqimage(films);
             
             CreateImages(films);
@@ -116,7 +118,8 @@ namespace NewGoslingCinema
             {
                 session = Cage.SelectedItem.ToString();
                 SqlClass.Tickets(session, name);
-                SqlClass.SelectTickets(name, Tickets);
+                Tickets.Items.Add(session);
+                Cage.Items.Remove(Cage.SelectedItem);
             }
         }
 
@@ -132,9 +135,10 @@ namespace NewGoslingCinema
                 foreach (var item in Cage.Items)
                 {
                     session = item.ToString();
+                    Tickets.Items.Add(session);
+                    Cage.Items.Remove(Cage.SelectedItem);
                     SqlClass.Tickets(session, name);
                 }
-                SqlClass.SelectTickets(name, Tickets);
             }
             else
             {

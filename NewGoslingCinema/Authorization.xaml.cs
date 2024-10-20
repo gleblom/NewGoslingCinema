@@ -45,9 +45,9 @@ namespace NewGoslingCinema
                         Loading.IsIndeterminate = true;
                         load.Visibility = Visibility.Visible;
                         IsEnabled = false;
+                        MainWindow.name = login;
                         MainWindow mainWindow = new MainWindow();
                         mainWindow.Show();
-                        mainWindow.name = login;
                         Hide();
                         break;
                 }
