@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NewGoslingCinema"
         mc:Ignorable="d"
-        Title="MainWindow" Height="529" Width="900" Loaded="Window_Loaded">
+        Title="Кинотеатр" Height="552" Width="816" Loaded="Window_Loaded" ResizeMode="NoResize">
     <Grid Background="#FF4F4FD1">
         <TabControl Background="#FF0E0A68">
-            <TabItem Header="TabItem">
+            <TabItem Header="Афиша">
                 <Grid>
                     <Grid.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -17,7 +17,7 @@
                         </LinearGradientBrush>
                     </Grid.Background>
                     <ScrollViewer 
-                        x:Name="Scroll" HorizontalAlignment="Center" Width="315">
+                        x:Name="Scroll" HorizontalAlignment="Center" Width="315" VerticalAlignment="Center" Height="493">
                         <ScrollViewer.Background>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                 <GradientStop Color="Black" Offset="1"/>
@@ -27,7 +27,7 @@
                     </ScrollViewer>
                 </Grid>
             </TabItem>
-            <TabItem Header="TabItem">
+            <TabItem Header="Билеты">
                 <Grid>
                     <Grid.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -35,7 +35,7 @@
                             <GradientStop Color="#FF425B8F" Offset="0"/>
                         </LinearGradientBrush>
                     </Grid.Background>
-                    <ListBox x:Name="Cage" d:ItemsSource="{Binding}" Margin="647,23,0,49" HorizontalAlignment="Center" Width="237">
+                    <ListBox x:Name="Cage" d:ItemsSource="{Binding}" Width="298" Height="412" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="502,39,0,0">
                         <ListBox.ItemContainerStyle>
                             <Style TargetType="ListBoxItem">
                                 <Setter Property="ContextMenu">
@@ -61,11 +61,11 @@
                             </Style>
                         </ListBox.ItemContainerStyle>
                     </ListBox>
-                    <Label Content="Корзина" HorizontalAlignment="Left" Margin="718,-4,0,0" VerticalAlignment="Top" Width="95" FontSize="18"/>
-                    <Button x:Name="Waste" Content="Очистить всё" HorizontalAlignment="Left" Margin="653,452,0,8" Width="120" FontSize="16" Click="Waste_Click"/>
-                    <Button x:Name="BuyAll" Content="Купить всё" HorizontalAlignment="Center" Margin="773,444,0,0" VerticalAlignment="Stretch" Height="25" Width="111" FontSize="16" Click="BuyAll_Click"/>
-                    <ListBox x:Name="Tickets" d:ItemsSource="{Binding}" Margin="10,23,0,49" Height="413" HorizontalAlignment="Left" Width="264"/>
-                    <Label Content="Список купленных билетов" HorizontalAlignment="Left" Margin="10,-4,0,0" VerticalAlignment="Top" FontSize="18"/>
+                    <Label Content="Корзина" HorizontalAlignment="Left" Margin="610,5,0,0" VerticalAlignment="Top" Width="82" FontSize="18"/>
+                    <Button x:Name="Waste" Content="Очистить всё" HorizontalAlignment="Left" Margin="680,462,0,0" Width="120" FontSize="16" Click="Waste_Click" VerticalAlignment="Top" Height="28"/>
+                    <Button x:Name="BuyAll" Content="Купить всё" HorizontalAlignment="Left" Margin="502,462,0,0" Height="25" Width="110" FontSize="16" Click="BuyAll_Click" VerticalAlignment="Top"/>
+                    <ListBox x:Name="Tickets" d:ItemsSource="{Binding}" Margin="10,40,333,40" Height="413" Width="299" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                    <Label Content="Список купленных билетов" HorizontalAlignment="Left" Margin="41,5,0,0" VerticalAlignment="Top" FontSize="18"/>
                 </Grid>
             </TabItem>
         </TabControl>
