@@ -28,7 +28,7 @@ namespace NewGoslingCinema
         private async void SignIn_Click(object sender, RoutedEventArgs e)
         {
             login = Login.Text;
-            password = Password.Password;
+            password = Password.Text;
             if (login != "" && password != "")
             {
                 int i = await SqlClass.Auth(login, password);
@@ -41,6 +41,8 @@ namespace NewGoslingCinema
                         MessageBox.Show("Неправильный пароль!");
                         break;
                     case 1:
+                        Login.Text = "";
+                        Password.Text = "";
                         Loading.Visibility = Visibility.Visible;
                         Loading.IsIndeterminate = true;
                         load.Visibility = Visibility.Visible;

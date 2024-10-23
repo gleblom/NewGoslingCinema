@@ -6,68 +6,56 @@
         xmlns:local="clr-namespace:NewGoslingCinema"
         mc:Ignorable="d"
         Title="Кинотеатр" Height="552" Width="816" Loaded="Window_Loaded" ResizeMode="NoResize">
-    <Grid Background="#FF4F4FD1">
-        <TabControl Background="#FF0E0A68">
-            <TabItem Header="Афиша">
-                <Grid>
-                    <Grid.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="Black" Offset="1"/>
-                            <GradientStop Color="#FF425B8F" Offset="0"/>
-                        </LinearGradientBrush>
-                    </Grid.Background>
-                    <ScrollViewer 
-                        x:Name="Scroll" HorizontalAlignment="Center" Width="315" VerticalAlignment="Center" Height="493">
-                        <ScrollViewer.Background>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <GradientStop Color="Black" Offset="1"/>
-                                <GradientStop Color="#FF425B8F" Offset="0"/>
-                            </LinearGradientBrush>
-                        </ScrollViewer.Background>
-                    </ScrollViewer>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Билеты">
-                <Grid>
-                    <Grid.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="Black" Offset="1"/>
-                            <GradientStop Color="#FF425B8F" Offset="0"/>
-                        </LinearGradientBrush>
-                    </Grid.Background>
-                    <ListBox x:Name="Cage" d:ItemsSource="{Binding}" Width="298" Height="412" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="502,39,0,0">
-                        <ListBox.ItemContainerStyle>
-                            <Style TargetType="ListBoxItem">
-                                <Setter Property="ContextMenu">
-                                    <Setter.Value>
-                                        <ContextMenu>
-                                            <MenuItem Header="Очистить" Name="Delete">
-                                                <MenuItem.Style>
-                                                    <Style TargetType="MenuItem">
-                                                        <EventSetter Event="Click" Handler="Delete_Click"/>
-                                                    </Style>
-                                                </MenuItem.Style>
-                                            </MenuItem>
-                                            <MenuItem Header="Купить" Name="Buy">
-                                                <MenuItem.Style>
-                                                    <Style TargetType="MenuItem">
-                                                        <EventSetter Event="Click" Handler="Buy_Click"/>
-                                                    </Style>
-                                                </MenuItem.Style>
-                                            </MenuItem>
-                                        </ContextMenu>
-                                    </Setter.Value>
-                                </Setter>
-                            </Style>
-                        </ListBox.ItemContainerStyle>
-                    </ListBox>
-                    <Label Content="Корзина" HorizontalAlignment="Left" Margin="610,5,0,0" VerticalAlignment="Top" Width="82" FontSize="18"/>
-                    <Button x:Name="Waste" Content="Очистить всё" HorizontalAlignment="Left" Margin="680,462,0,0" Width="120" FontSize="16" Click="Waste_Click" VerticalAlignment="Top" Height="28"/>
-                    <Button x:Name="BuyAll" Content="Купить всё" HorizontalAlignment="Left" Margin="502,462,0,0" Height="25" Width="110" FontSize="16" Click="BuyAll_Click" VerticalAlignment="Top"/>
-                    <ListBox x:Name="Tickets" d:ItemsSource="{Binding}" Margin="10,40,333,40" Height="413" Width="299" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                    <Label Content="Список купленных билетов" HorizontalAlignment="Left" Margin="41,5,0,0" VerticalAlignment="Top" FontSize="18"/>
-                </Grid>
-            </TabItem>
-        </TabControl>
+    <Grid>
+
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="1"/>
+                <GradientStop Color="#FF425B8F" Offset="0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <ScrollViewer 
+                        x:Name="Scroll" HorizontalAlignment="Left" Width="396" Margin="408,0,0,10">
+            <ScrollViewer.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="#FF425B8F" Offset="0"/>
+                </LinearGradientBrush>
+            </ScrollViewer.Background>
+        </ScrollViewer>
+        <TextBox HorizontalAlignment="Left" Margin="1330,244,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <ToolBar Margin="0,0,758,0" Background="#FFEEF5FD"/>
+        <Expander ExpandDirection="Right" Header="Корзина" HorizontalAlignment="Left" Height="210" Margin="7,9,0,0" VerticalAlignment="Top" Width="340" FontSize="8">
+            <ListBox x:Name="Cage" d:ItemsSource="{Binding}" Width="293" Height="250" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListBoxItem}">
+                        <Setter Property="ContextMenu">
+                            <Setter.Value>
+                                <ContextMenu>
+                                    <MenuItem Header="Очистить" x:Name="Delete">
+                                        <MenuItem.Style>
+                                            <Style TargetType="{x:Type MenuItem}">
+                                                <EventSetter Event="MenuItem.Click" Handler="Delete_Click"/>
+                                            </Style>
+                                        </MenuItem.Style>
+                                    </MenuItem>
+                                    <MenuItem Header="Купить" x:Name="Buy">
+                                        <MenuItem.Style>
+                                            <Style TargetType="{x:Type MenuItem}">
+                                                <EventSetter Event="MenuItem.Click" Handler="Buy_Click"/>
+                                            </Style>
+                                        </MenuItem.Style>
+                                    </MenuItem>
+                                </ContextMenu>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </ListBox>
+        </Expander>
+        <Expander ExpandDirection="Right" Header="Билеты" Margin="5,220,471,99" FontSize="10">
+            <ListBox x:Name="Tickets" d:ItemsSource="{Binding}" Height="277" Width="310" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        </Expander>
+        <Button x:Name="Exit" Content="Выход" HorizontalAlignment="Left" Margin="4,495,0,0" VerticalAlignment="Top" Width="37" Height="21" Background="#FFEEF5FD" BorderBrush="{x:Null}" FontWeight="Bold" FontSize="10" Click="Exit_Click"/>
     </Grid>
 </Window>

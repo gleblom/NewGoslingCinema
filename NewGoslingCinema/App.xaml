@@ -4,6 +4,28 @@
              xmlns:local="clr-namespace:NewGoslingCinema"
              StartupUri="Authorization.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Card.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.CheckBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Flipper.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Popupbox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.DataGrid.xaml" />
+                
+            </ResourceDictionary.MergedDictionaries>
+
+            <SolidColorBrush x:Key="PrimaryHueLightBrush" Color="#349fda"/>
+            <SolidColorBrush x:Key="PrimaryHueLightForegroundBrush" Color="#349fda"/>
+            <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#349fda"/>
+            <SolidColorBrush x:Key="PrimaryHueMidForegroundBrush" Color="#349fda"/>
+            <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="#349fda"/>
+            <SolidColorBrush x:Key="PrimaryHueDarkForegroundBrush" Color="#349fda"/>
+
+   
+
+            <SolidColorBrush x:Key="SecondaryAccentBrush" Color="#627af0"/>
+            <SolidColorBrush x:Key="SecondaryAccentForegroundBrush" Color="#627af0"/>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
