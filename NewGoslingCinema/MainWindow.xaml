@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NewGoslingCinema"
         mc:Ignorable="d"
-        Title="Кинотеатр" Height="552" Width="816" Loaded="Window_Loaded" ResizeMode="NoResize">
+        Title="Кинотеатр" Height="552" Width="816" Loaded="Window_Loaded" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
 
         <Grid.Background>

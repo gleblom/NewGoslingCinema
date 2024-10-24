@@ -27,9 +27,9 @@ namespace NewGoslingCinema
         public List<FilmPage> pages = new List<FilmPage>();
         public static string name;
         string session;
-        string film;
 
-        //public Authorization authorization;
+
+        public static Authorization authorization;
 
 
         public MainWindow()
@@ -40,7 +40,7 @@ namespace NewGoslingCinema
             Film.ToNormalText(films);
             //something.Content = films[0].name;
             Parser.Image(films);
-            SqlClass.SelectTickets(name, Tickets);
+            //SqlClass.SelectTickets(name, Tickets);
             //Film.SetHqimage(films);
             
             CreateImages(films);
@@ -105,7 +105,17 @@ namespace NewGoslingCinema
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //authorization.Close();
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+               authorization.Hide();
+               authorization.Loading.Visibility = Visibility.Collapsed;
+               authorization.load.Visibility = Visibility.Collapsed;
+
+            });
+            SqlClass.SelectTickets(name, Tickets);
+
         }
+
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
@@ -147,8 +157,8 @@ namespace NewGoslingCinema
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
-        {
-            
+        {   
+            Close();
         }
     }
 }

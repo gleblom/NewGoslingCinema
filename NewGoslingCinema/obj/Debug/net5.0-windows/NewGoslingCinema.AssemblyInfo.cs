@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NewGoslingCinema")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d1938b758ce808fa09010f5a09ad4c27338957ac")]
 [assembly: System.Reflection.AssemblyProductAttribute("NewGoslingCinema")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NewGoslingCinema")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

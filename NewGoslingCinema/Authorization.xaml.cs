@@ -41,19 +41,32 @@ namespace NewGoslingCinema
                         MessageBox.Show("Неправильный пароль!");
                         break;
                     case 1:
+                        MainWindow.authorization = this;
+                        MainWindow.name = login;
                         Login.Text = "";
                         Password.Text = "";
                         Loading.Visibility = Visibility.Visible;
                         Loading.IsIndeterminate = true;
                         load.Visibility = Visibility.Visible;
                         IsEnabled = false;
-                        MainWindow.name = login;
-                        MainWindow mainWindow = new MainWindow();
-                        mainWindow.Show();
-                        Hide();
+                        Thread newWindowThread = new Thread(new ThreadStart(ThreadStartingPoint));
+
+                        newWindowThread.SetApartmentState(ApartmentState.STA);
+                        newWindowThread.IsBackground = true;
+                        newWindowThread.Start();
+                        //MainWindow.name = login;
+                        //MainWindow mainWindow = new MainWindow();
+                        //mainWindow.Show();
+                        //Hide();
                         break;
                 }
             }
+        }
+        private void ThreadStartingPoint()
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            System.Windows.Threading.Dispatcher.Run();
         }
 
 
