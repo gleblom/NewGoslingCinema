@@ -161,6 +161,31 @@ namespace NewGoslingCinema
             }
             com = null;
         }
+        public static async Task<int> Registration(string login, string password)
+        {
+            con = ConnectTo(con);
+            using (con)
+            {
+                await con.OpenAsync();
+                com = new SqlCommand("Registration", con);
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.AddWithValue("@Login", login);
+                com.Parameters.AddWithValue("Password", password);
+                reader = await com.ExecuteReaderAsync();
+                if (reader.HasRows)
+                {
+                    if (await reader.ReadAsync())
+                    {
+                        con = null;
+                        return 1;
+                    }
+                }
+                await reader.CloseAsync();
+                await com.ExecuteNonQueryAsync();
+            }
+            con = null;
+            return 0;
+        }
 
     }
 }

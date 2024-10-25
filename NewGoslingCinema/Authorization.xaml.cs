@@ -49,26 +49,31 @@ namespace NewGoslingCinema
                         Loading.IsIndeterminate = true;
                         load.Visibility = Visibility.Visible;
                         IsEnabled = false;
-                        Thread newWindowThread = new Thread(new ThreadStart(ThreadStartingPoint));
+                        //Thread newWindowThread = new Thread(new ThreadStart(ThreadStartingPoint));
 
-                        newWindowThread.SetApartmentState(ApartmentState.STA);
-                        newWindowThread.IsBackground = true;
-                        newWindowThread.Start();
+                        //newWindowThread.SetApartmentState(ApartmentState.STA);
+                        //newWindowThread.IsBackground = true;
+                        //newWindowThread.Start();
                         //MainWindow.name = login;
-                        //MainWindow mainWindow = new MainWindow();
-                        //mainWindow.Show();
+                        MainWindow mainWindow = new MainWindow();
+                        mainWindow.Show();
                         //Hide();
                         break;
                 }
             }
         }
-        private void ThreadStartingPoint()
+        //private void ThreadStartingPoint()
+        //{
+        //    MainWindow mainWindow = new MainWindow();
+        //    mainWindow.Show();
+        //    System.Windows.Threading.Dispatcher.Run();
+        //}
+
+        private void reg_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            System.Windows.Threading.Dispatcher.Run();
+            Application.Current.MainWindow = new Registration();
+            Application.Current.MainWindow.Show();
+            Close();
         }
-
-
     }
 }

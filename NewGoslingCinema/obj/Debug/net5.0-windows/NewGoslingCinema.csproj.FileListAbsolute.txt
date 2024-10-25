@@ -143,3 +143,5 @@ C:\Users\all_local\Source\Repos\NewGoslingCinema\NewGoslingCinema\bin\Debug\net5
 C:\Users\all_local\Source\Repos\NewGoslingCinema\NewGoslingCinema\bin\Debug\net5.0-windows\ru-RU\MaterialDesignExtensions.resources.dll
 C:\Users\all_local\Source\Repos\NewGoslingCinema\NewGoslingCinema\bin\Debug\net5.0-windows\uz-Latn-UZ\MaterialDesignExtensions.resources.dll
 C:\Users\all_local\Source\Repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\App.baml
+C:\Users\all_local\Source\Repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\Registration.g.cs
+C:\Users\all_local\Source\Repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\Registration.baml

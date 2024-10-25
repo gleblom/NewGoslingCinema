@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Users\all_local\Source\Repos\NewGoslingCinema\NewGoslingCinema\App.xaml
-42145532285
+51023121946
 
-11170323689
+12-492326352
 208-743486516
-AdminWindow.xaml;Authorization.xaml;FilmPage.xaml;MainWindow.xaml;
+AdminWindow.xaml;Authorization.xaml;FilmPage.xaml;MainWindow.xaml;Registration.xaml;
 
-True
+False
 

@@ -104,12 +104,13 @@ namespace NewGoslingCinema
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //authorization.Close();
+            //authorization.Close()
             Application.Current.Dispatcher.Invoke(() =>
             {
-               authorization.Hide();
-               authorization.Loading.Visibility = Visibility.Collapsed;
-               authorization.load.Visibility = Visibility.Collapsed;
+                //Application.Current.MainWindow = this;
+                //authorization.Close();
+                //authorization.Loading.Visibility = Visibility.Collapsed;
+                //authorization.load.Visibility = Visibility.Collapsed;
 
             });
             SqlClass.SelectTickets(name, Tickets);

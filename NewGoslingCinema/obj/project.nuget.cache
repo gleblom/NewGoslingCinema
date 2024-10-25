@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NxdsNbrL9gPbat89jXAxxGnKmlKycINPfb47kHOkXb/oEZyO5M+tjMiG4+dpjG9OzPF0kCqN45Cozic/ERalUw==",
+  "dgSpecHash": "z/4e2fiULE+glSrL7OE4CAduOhkod/zp9jQCcj1t6z2+2Ionr1pDRQ9nf7/WEmWXzT4tMCAhKd833b/IWQMKKg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\all_local\\Source\\Repos\\NewGoslingCinema\\NewGoslingCinema\\NewGoslingCinema.csproj",
+  "projectFilePath": "C:\\Users\\all_local\\source\\repos\\NewGoslingCinema\\NewGoslingCinema\\NewGoslingCinema.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\all_local\\.nuget\\packages\\dynamitey\\2.0.10.189\\dynamitey.2.0.10.189.nupkg.sha512",
     "C:\\Users\\all_local\\.nuget\\packages\\extended.wpf.toolkit\\4.6.1\\extended.wpf.toolkit.4.6.1.nupkg.sha512",

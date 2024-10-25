@@ -13,7 +13,7 @@
         <Label Content="Логин" HorizontalAlignment="Left" Margin="156,55,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="#FF349FDA"/>
         <Label Content="Пароль" HorizontalAlignment="Left" Margin="148,138,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="#FF349FDA"/>
         <TextBox Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" x:Name="Password" HorizontalAlignment="Left" Margin="50,174,0,0" VerticalAlignment="Top" Width="250" Height="36"/>
-        <TextBlock HorizontalAlignment="Center" Margin="0,331,0,0" Text="Нет аккаунта? Зарегистрироваться" TextWrapping="Wrap" VerticalAlignment="Top" Width="194"/>
+        <TextBlock x:Name="reg" HorizontalAlignment="Left" Margin="83,330,0,0" Text="Нет аккаунта? Зарегистрироваться" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" MouseDown="reg_MouseDown"/>
         <ProgressBar x:Name="Loading" HorizontalAlignment="Left" Height="21" Margin="50,148,0,0" VerticalAlignment="Top" Width="250" Visibility="Collapsed"/>
         <Label x:Name="load" Content="Выполняется вход в аккаунт..." HorizontalAlignment="Left" Margin="93,146,0,0" VerticalAlignment="Top" Width="179" Visibility="Collapsed"/>
 
