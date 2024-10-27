@@ -145,3 +145,7 @@ C:\Users\all_local\Source\Repos\NewGoslingCinema\NewGoslingCinema\bin\Debug\net5
 C:\Users\all_local\Source\Repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\App.baml
 C:\Users\all_local\Source\Repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\Registration.g.cs
 C:\Users\all_local\Source\Repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\Registration.baml
+C:\Users\glebl\source\repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\LoadWindow.g.cs
+C:\Users\glebl\source\repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\Registration.g.cs
+C:\Users\glebl\source\repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\LoadWindow.baml
+C:\Users\glebl\source\repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5.0-windows\Registration.baml

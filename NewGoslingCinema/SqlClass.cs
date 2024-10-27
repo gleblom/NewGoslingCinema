@@ -11,9 +11,10 @@ namespace NewGoslingCinema
 {
     class SqlClass
     {
-        static string str = "Data Source=510-013;Initial Catalog=NewCinema;Integrated Security=True;Encrypt=False";
+        static string str = "Data Source=DESKTOP-1U9FDH3;Initial Catalog=NewCinema;Integrated Security=True";
         // Data Source=DESKTOP-1U9FDH3;Initial Catalog=NewCinema;Integrated Security=True
         // Data Source=510-013;Initial Catalog=NewCinema;Integrated Security=True;Encrypt=False
+
         static SqlConnection con;
         static SqlCommand com;
         static SqlDataReader reader;
@@ -117,6 +118,7 @@ namespace NewGoslingCinema
                         TimeSpan timeValue = reader.GetTimeSpan(0);
                         DateTime date = reader.GetDateTime(1);
                         string t = timeValue.ToString();
+                        t = SessionParser.TimeParse(t);
                         string d = date.ToShortDateString();
                         list.Items.Add("Дата: " + d + " Время: " + t);
                     }
@@ -126,7 +128,7 @@ namespace NewGoslingCinema
             }
             com = null;
         }
-        public static async void Tickets(string session, string userName)
+        public static async void Tickets(string userName, string date, string time, string film)
         {
             con = ConnectTo(con);
             using (con)
@@ -134,8 +136,10 @@ namespace NewGoslingCinema
                 await con.OpenAsync();
                 com = new SqlCommand("Ticket", con);
                 com.CommandType = CommandType.StoredProcedure;
-                com.Parameters.AddWithValue("@Session", session);
                 com.Parameters.AddWithValue("@User", userName);
+                com.Parameters.AddWithValue("@Date", date);
+                com.Parameters.AddWithValue("@Time", time);
+                com.Parameters.AddWithValue("@Film", film);
                 await com.ExecuteNonQueryAsync();
             }
             com = null;
@@ -154,7 +158,10 @@ namespace NewGoslingCinema
                 {
                     while (await reader.ReadAsync())
                     {
-                        list.Items.Add(reader.GetString(0));
+                        string d = reader.GetString(0);
+                        string t = reader.GetString(1);
+                        string f = reader.GetString(2);
+                        list.Items.Add("Фильм: " + f + ", " + "Дата: " + d + " Время: " + t );
                     }
                 }
                 await reader.CloseAsync();

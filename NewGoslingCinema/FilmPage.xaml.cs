@@ -1,22 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace NewGoslingCinema
 {
-    /// <summary>
-    /// Логика взаимодействия для FilmPage.xaml
-    /// </summary>
+
     public partial class FilmPage : Window
     {
         public MainWindow mainWindow;
@@ -29,7 +15,13 @@ namespace NewGoslingCinema
         {
             if(SessionList.SelectedItem != null)
             {
-                mainWindow.Cage.Items.Add("Фильм:" + filmname.Text + "," + SessionList.SelectedItem);
+                string dt = SessionList.SelectedItem.ToString();
+                string[] timedate = SessionParser.TimeDateParser(SessionList.SelectedItem.ToString());
+                mainWindow.Cage.Items.Add("Фильм:" + filmname.Text + "," + " Дата: " + 
+                    timedate[0] + " Время: " + timedate[1]);
+                mainWindow.times.Add(timedate[1]);
+                mainWindow.dates.Add(timedate[0]);
+                mainWindow.pageFilms.Add(filmname.Text);
             }
         }
     }

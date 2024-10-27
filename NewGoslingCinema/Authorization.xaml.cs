@@ -1,25 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Threading;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
 
 namespace NewGoslingCinema
 {
 
     public partial class Authorization : Window
     {
-        public string login;
-        public string password;
+        string login;
+
+        string password;
+
+
         public Authorization()
         {
             InitializeComponent();
@@ -41,33 +34,36 @@ namespace NewGoslingCinema
                         MessageBox.Show("Неправильный пароль!");
                         break;
                     case 1:
+                        Hide();
+
                         MainWindow.authorization = this;
                         MainWindow.name = login;
+
                         Login.Text = "";
                         Password.Text = "";
-                        Loading.Visibility = Visibility.Visible;
-                        Loading.IsIndeterminate = true;
-                        load.Visibility = Visibility.Visible;
-                        IsEnabled = false;
-                        //Thread newWindowThread = new Thread(new ThreadStart(ThreadStartingPoint));
 
-                        //newWindowThread.SetApartmentState(ApartmentState.STA);
-                        //newWindowThread.IsBackground = true;
-                        //newWindowThread.Start();
-                        //MainWindow.name = login;
+                        Thread newWindowThread = new Thread(new ThreadStart(ThreadStartingPoint));
+                        newWindowThread.SetApartmentState(ApartmentState.STA);
+                        newWindowThread.IsBackground = true;
+                        newWindowThread.Start();
+
                         MainWindow mainWindow = new MainWindow();
-                        mainWindow.Show();
-                        //Hide();
+                        Application.Current.MainWindow = mainWindow;
+                        Application.Current.MainWindow.Show();
+
+                        Close();
+
                         break;
                 }
             }
         }
-        //private void ThreadStartingPoint()
-        //{
-        //    MainWindow mainWindow = new MainWindow();
-        //    mainWindow.Show();
-        //    System.Windows.Threading.Dispatcher.Run();
-        //}
+        private void ThreadStartingPoint()
+        {
+            LoadWindow loadWindow = new LoadWindow();
+            MainWindow.loadWindow = loadWindow;
+            loadWindow.Show();
+            System.Windows.Threading.Dispatcher.Run();
+        }
 
         private void reg_MouseDown(object sender, MouseButtonEventArgs e)
         {
