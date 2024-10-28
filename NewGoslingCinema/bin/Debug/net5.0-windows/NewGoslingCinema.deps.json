@@ -12,10 +12,19 @@
           "HtmlAgilityPack": "1.11.66",
           "MaterialDesignExtensions": "3.3.0",
           "MaterialDesignInXamlToolkitAddOns": "0.0.6",
-          "System.Data.SqlClient": "4.8.6"
+          "System.Data.SqlClient": "4.8.6",
+          "iTextSharp": "5.5.13.4"
         },
         "runtime": {
           "NewGoslingCinema.dll": {}
+        }
+      },
+      "BouncyCastle.Cryptography/2.4.0": {
+        "runtime": {
+          "lib/netstandard2.0/BouncyCastle.Cryptography.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.4.0.33771"
+          }
         }
       },
       "Dynamitey/2.0.10.189": {
@@ -119,6 +128,17 @@
           }
         }
       },
+      "iTextSharp/5.5.13.4": {
+        "dependencies": {
+          "BouncyCastle.Cryptography": "2.4.0"
+        },
+        "runtime": {
+          "lib/net461/itextsharp.dll": {
+            "assemblyVersion": "5.5.13.4",
+            "fileVersion": "5.5.13.4"
+          }
+        }
+      },
       "MaterialDesignColors/2.0.6": {
         "runtime": {
           "lib/netcoreapp3.1/MaterialDesignColors.dll": {
@@ -140,7 +160,7 @@
         },
         "resources": {
           "lib/netcoreapp3.1/Ru/MaterialDesignExtensions.resources.dll": {
-            "locale": "Ru"
+            "locale": "ru"
           },
           "lib/netcoreapp3.1/ar-DZ/MaterialDesignExtensions.resources.dll": {
             "locale": "ar-DZ"
@@ -167,7 +187,7 @@
             "locale": "pt"
           },
           "lib/netcoreapp3.1/ru-ru/MaterialDesignExtensions.resources.dll": {
-            "locale": "ru-ru"
+            "locale": "ru-RU"
           },
           "lib/netcoreapp3.1/uz-Latn-UZ/MaterialDesignExtensions.resources.dll": {
             "locale": "uz-Latn-UZ"
@@ -306,6 +326,13 @@
       "serviceable": false,
       "sha512": ""
     },
+    "BouncyCastle.Cryptography/2.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SwXsAV3sMvAU/Nn31pbjhWurYSjJ+/giI/0n6tCrYoupEK34iIHCuk3STAd9fx8yudM85KkLSVdn951vTng/vQ==",
+      "path": "bouncycastle.cryptography/2.4.0",
+      "hashPath": "bouncycastle.cryptography.2.4.0.nupkg.sha512"
+    },
     "Dynamitey/2.0.10.189": {
       "type": "package",
       "serviceable": true,
@@ -340,6 +367,13 @@
       "sha512": "sha512-kRlJ/rnvDzSPZv294uR+k3IR04eQO1IxdYJuUPPFETZ0W2NDDRiuZlfgYaDX17OVvODJFWj6+lsMOko/Xj5XVQ==",
       "path": "htmlagilitypack/1.11.66",
       "hashPath": "htmlagilitypack.1.11.66.nupkg.sha512"
+    },
+    "iTextSharp/5.5.13.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/cvCNv8AJ+XuD99u4NfHSSxkBJKTdvP36wcfQF9V1Cjzi1ycyFSa4vJ64a3DhFVUTKVO60WF8OmAqngQDTHgYA==",
+      "path": "itextsharp/5.5.13.4",
+      "hashPath": "itextsharp.5.5.13.4.nupkg.sha512"
     },
     "MaterialDesignColors/2.0.6": {
       "type": "package",

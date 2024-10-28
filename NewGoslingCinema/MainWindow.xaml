@@ -56,7 +56,25 @@
             </StackPanel>
         </Expander>
         <Expander ExpandDirection="Right" Header="Билеты" Margin="5,291,471,28" FontSize="10">
-            <ListBox SelectionMode="Single" x:Name="Tickets" d:ItemsSource="{Binding}" Height="277" Width="310" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            <ListBox SelectionMode="Single" x:Name="Tickets" d:ItemsSource="{Binding}" Height="277" Width="310" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListBoxItem}">
+                        <Setter Property="ContextMenu">
+                            <Setter.Value>
+                                <ContextMenu>
+                                    <MenuItem Header="Сохранить в PDF">
+                                        <MenuItem.Style>
+                                            <Style TargetType="{x:Type MenuItem}">
+                                                <EventSetter Event="MenuItem.Click" Handler="SavePDF"/>
+                                            </Style>
+                                        </MenuItem.Style>
+                                    </MenuItem>
+                                </ContextMenu>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </ListBox>
         </Expander>
         <Button x:Name="Exit" Content="Выход" HorizontalAlignment="Left" Margin="4,10,0,0" VerticalAlignment="Top" Width="36" Height="22" Background="#FFEEF5FD" BorderBrush="{x:Null}" FontWeight="Bold" FontSize="10" Click="Exit_Click"/>
         <Button x:Name="info" Content="info" HorizontalAlignment="Left" Margin="3,32,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="#FFEEF5FD" FontSize="14" FontWeight="Bold" Width="39" Click="info_Click"/>

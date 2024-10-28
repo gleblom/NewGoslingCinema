@@ -1,9 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Printing;
+using System.Drawing;
+using System.IO;
+using System.Reflection.Metadata;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
+using Image = System.Windows.Controls.Image;
+using iTextSharp.text;
+using Document = iTextSharp.text.Document;
+using iTextSharp.text.pdf;
+using Font = iTextSharp.text.Font;
+using Paragraph = iTextSharp.text.Paragraph;
 
 namespace NewGoslingCinema
 {
@@ -140,25 +151,6 @@ namespace NewGoslingCinema
         {
             Cage.Items.Clear();
         }
-
-        //private void BuyAll_Click(object sender, RoutedEventArgs e)
-        //{
-        //    if(Cage.Items.Count > 0)
-        //    {
-        //        foreach (var item in Cage.Items)
-        //        {
-        //            session = item.ToString();
-        //            Tickets.Items.Add(session);
-        //            Cage.Items.Remove(Cage.SelectedItem);
-        //            //SqlClass.Tickets(session, name);
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Корзина пуста!");
-        //    }
-        //}
-
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             if(filmPage != null)
@@ -199,6 +191,31 @@ namespace NewGoslingCinema
                 "\n Куплено более 20 билетов - 10%" +
                 "\n Куплено более 35 билетов - 20%" +
                 "\n Куплено более 50 билетов - 30%", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+        private void SavePDF(object sender, RoutedEventArgs e) {
+            try
+            {
+                string a = Tickets.SelectedItem.ToString();
+                string i = Convert.ToString(Tickets.SelectedIndex) + ".pdf";
+                string path = $"C:\\Users\\all_local\\source\\repos\\NewGoslingCinema\\NewGoslingCinema\\Tickets\\{i}";
+                var document = new Document(PageSize.A7, 20, 20, 30, 20);
+                string ttf = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "ARIALNBI.TTF");
+                var baseFont = BaseFont.CreateFont(ttf, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+                var font = new Font(baseFont, Font.DEFAULTSIZE, Font.NORMAL);
+                using (var writer = PdfWriter.GetInstance(document, new FileStream(path, FileMode.Create)))
+                {
+
+                    document.Open();
+                    document.NewPage();
+                    document.Add(new Paragraph(a, font));
+                    document.Close();
+                    writer.Close();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Билет уже сохранён!");
+            }
         }
     }
 }
