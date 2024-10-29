@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="Авторизация" Height="389" Width="340" ResizeMode="NoResize" Topmost="True" WindowStartupLocation="CenterScreen">
     <Grid x:Name="grid">
-        <TextBox Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" x:Name="Login" HorizontalAlignment="Left" Margin="50,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="36"/>
+        <TextBox MaxLength="50" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" x:Name="Login" HorizontalAlignment="Left" Margin="50,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="36"/>
         <Button Style="{StaticResource MaterialDesignOutlinedSecondaryLightButton}" x:Name="SignIn" Content="Войти" HorizontalAlignment="Left" Margin="125,278,0,0" VerticalAlignment="Top" Width="100" Height="28" FontSize="14" FontWeight="Bold" Click="SignIn_Click"/>
         <Label Content="Логин" HorizontalAlignment="Left" Margin="156,55,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="#FF349FDA"/>
         <Label Content="Пароль" HorizontalAlignment="Left" Margin="148,138,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="#FF349FDA"/>

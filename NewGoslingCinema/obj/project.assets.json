@@ -1415,11 +1415,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\all_local\\source\\repos\\NewGoslingCinema\\NewGoslingCinema\\NewGoslingCinema.csproj",
+      "projectUniqueName": "C:\\Users\\all_local\\Source\\Repos\\NewGoslingCinema\\NewGoslingCinema\\NewGoslingCinema.csproj",
       "projectName": "NewGoslingCinema",
-      "projectPath": "C:\\Users\\all_local\\source\\repos\\NewGoslingCinema\\NewGoslingCinema\\NewGoslingCinema.csproj",
+      "projectPath": "C:\\Users\\all_local\\Source\\Repos\\NewGoslingCinema\\NewGoslingCinema\\NewGoslingCinema.csproj",
       "packagesPath": "C:\\Users\\all_local\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\all_local\\source\\repos\\NewGoslingCinema\\NewGoslingCinema\\obj\\",
+      "outputPath": "C:\\Users\\all_local\\Source\\Repos\\NewGoslingCinema\\NewGoslingCinema\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

@@ -9,8 +9,8 @@
     <Grid>
         <Label Content="Логин" HorizontalAlignment="Left" Margin="156,55,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="#FF349FDA"/>
         <Label Content="Пароль" HorizontalAlignment="Left" Margin="148,138,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="#FF349FDA"/>
-        <TextBox Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" x:Name="Login" HorizontalAlignment="Left" Margin="50,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="36"/>
-        <TextBox Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" x:Name="Password" HorizontalAlignment="Left" Margin="50,174,0,0" VerticalAlignment="Top" Width="250" Height="36"/>
+        <TextBox MaxLength="50" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" x:Name="Login" HorizontalAlignment="Left" Margin="50,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="36"/>
+        <TextBox Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" x:Name="Password" HorizontalAlignment="Left" Margin="50,174,0,0" VerticalAlignment="Top" Width="250" Height="36" LostFocus="Password_LostFocus"/>
         <Button x:Name="SignUp" Style="{StaticResource MaterialDesignOutlinedSecondaryLightButton}" Content="Зарегистрироваться" HorizontalAlignment="Left" Margin="88,278,0,0" VerticalAlignment="Top" Width="174" Height="28" FontSize="14" FontWeight="Bold" Click="SignUp_Click"/>
         <TextBlock x:Name="auth" HorizontalAlignment="Left" Margin="122,328,0,0" Text="Есть аккаунт? Войти" TextWrapping="Wrap" VerticalAlignment="Top" Width="116" MouseDown="auth_MouseDown"/>
 

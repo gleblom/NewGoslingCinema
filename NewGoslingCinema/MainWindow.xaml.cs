@@ -197,7 +197,7 @@ namespace NewGoslingCinema
             {
                 string a = Tickets.SelectedItem.ToString();
                 string i = Convert.ToString(Tickets.SelectedIndex) + ".pdf";
-                string path = $"C:\\Users\\all_local\\source\\repos\\NewGoslingCinema\\NewGoslingCinema\\Tickets\\{i}";
+                string path = $"Tickets/{i}";
                 var document = new Document(PageSize.A7, 20, 20, 30, 20);
                 string ttf = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "ARIALNBI.TTF");
                 var baseFont = BaseFont.CreateFont(ttf, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
@@ -214,7 +214,7 @@ namespace NewGoslingCinema
             }
             catch
             {
-                MessageBox.Show("Билет уже сохранён!");
+                MessageBox.Show("Произошла ошибка!");
             }
         }
     }

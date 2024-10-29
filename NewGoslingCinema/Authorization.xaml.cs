@@ -56,6 +56,10 @@ namespace NewGoslingCinema
                         break;
                 }
             }
+            else
+            {
+                MessageBox.Show("Заполните пустые поля!");
+            }
         }
         private void ThreadStartingPoint()
         {
@@ -71,5 +75,6 @@ namespace NewGoslingCinema
             Application.Current.MainWindow.Show();
             Close();
         }
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace NewGoslingCinema
@@ -31,6 +32,10 @@ namespace NewGoslingCinema
                     MessageBox.Show("Такой пользователь уже существует!");
                 }
             }
+            else
+            {
+                MessageBox.Show("Заполните пустые поля!");
+            }
         }
 
         private void auth_MouseDown(object sender, MouseButtonEventArgs e)
@@ -38,6 +43,14 @@ namespace NewGoslingCinema
             Application.Current.MainWindow = new Authorization();
             Application.Current.MainWindow.Show();
             Close();
+        }
+
+        private void Password_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (((TextBox)sender).Text.Length < 5)
+            {
+                MessageBox.Show("Пароль должен состоять минимум из 5 символов!");
+            }
         }
     }
 }

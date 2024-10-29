@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "60l8leZtRDC9cYX8gEok7IzmRPVSkGYgMjuwTcE4ttBJoG5KjvwylUfXiemSEFIcqK0ZAVWMWSPPdjvCA4SY8g==",
+  "dgSpecHash": "CxssZbrp4skP7OhhCIjxHWlKRviRkmgsDVfLXCsgn8cjmWo9qd2mQzsprdNGhbl+8wxR8Z3JAhtYPtRabI1zHQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\all_local\\source\\repos\\NewGoslingCinema\\NewGoslingCinema\\NewGoslingCinema.csproj",
+  "projectFilePath": "C:\\Users\\all_local\\Source\\Repos\\NewGoslingCinema\\NewGoslingCinema\\NewGoslingCinema.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\all_local\\.nuget\\packages\\bouncycastle.cryptography\\2.4.0\\bouncycastle.cryptography.2.4.0.nupkg.sha512",
     "C:\\Users\\all_local\\.nuget\\packages\\dynamitey\\2.0.10.189\\dynamitey.2.0.10.189.nupkg.sha512",
