@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
@@ -20,7 +17,7 @@ namespace NewGoslingCinema
         static SqlDataReader reader;
 
 
-        public static SqlConnection ConnectTo(SqlConnection cnn)
+        static SqlConnection ConnectTo(SqlConnection cnn)
         {   
             cnn = new SqlConnection(str);
             return cnn;
@@ -177,7 +174,7 @@ namespace NewGoslingCinema
                 com = new SqlCommand("Registration", con);
                 com.CommandType = CommandType.StoredProcedure;
                 com.Parameters.AddWithValue("@Login", login);
-                com.Parameters.AddWithValue("Password", password);
+                com.Parameters.AddWithValue("@Password", password);
                 reader = await com.ExecuteReaderAsync();
                 if (reader.HasRows)
                 {

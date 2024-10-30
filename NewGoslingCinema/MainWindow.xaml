@@ -57,6 +57,11 @@
         </Expander>
         <Expander ExpandDirection="Right" Header="Билеты" Margin="5,291,471,28" FontSize="10">
             <ListBox SelectionMode="Single" x:Name="Tickets" d:ItemsSource="{Binding}" Height="277" Width="310" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <ListBox.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Показать папку с билетами" Click="MenuItem_Click"></MenuItem>
+                    </ContextMenu>
+                </ListBox.ContextMenu>
                 <ListBox.ItemContainerStyle>
                     <Style TargetType="{x:Type ListBoxItem}">
                         <Setter Property="ContextMenu">

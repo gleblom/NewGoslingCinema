@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing.Printing;
-using System.Drawing;
 using System.IO;
-using System.Reflection.Metadata;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using Image = System.Windows.Controls.Image;
@@ -15,6 +11,7 @@ using Document = iTextSharp.text.Document;
 using iTextSharp.text.pdf;
 using Font = iTextSharp.text.Font;
 using Paragraph = iTextSharp.text.Paragraph;
+using System.Diagnostics;
 
 namespace NewGoslingCinema
 {
@@ -44,6 +41,7 @@ namespace NewGoslingCinema
         public List<string> times = new List<string>();
 
         public List<string> pageFilms = new List<string>();
+
 
         public MainWindow()
         {
@@ -195,6 +193,7 @@ namespace NewGoslingCinema
         private void SavePDF(object sender, RoutedEventArgs e) {
             try
             {
+
                 string a = Tickets.SelectedItem.ToString();
                 string i = Convert.ToString(Tickets.SelectedIndex) + ".pdf";
                 string path = $"Tickets/{i}";
@@ -216,6 +215,12 @@ namespace NewGoslingCinema
             {
                 MessageBox.Show("Произошла ошибка!");
             }
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            string path = Directory.GetCurrentDirectory() + @"\Tickets";
+            Process.Start("explorer.exe", path);
         }
     }
 }

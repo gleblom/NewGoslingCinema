@@ -20,16 +20,23 @@ namespace NewGoslingCinema
             password = Password.Text;
             if(Login.Text != "" && Password.Text != "")
             {
-                int i = await SqlClass.Registration(login, password);
-                if(i == 0) 
+                if (Password.Text.Length > 4) 
                 {
-                    MessageBox.Show("Регистрация прошла успешно!");
-                    Login.Text = "";
-                    Password.Text = "";
+                    int i = await SqlClass.Registration(login, password);
+                    if (i == 0)
+                    {
+                        MessageBox.Show("Регистрация прошла успешно!");
+                        Login.Text = "";
+                        Password.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Такой пользователь уже существует!");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Такой пользователь уже существует!");
+                    MessageBox.Show("Пароль должен состоять минимум из 5 символов!");
                 }
             }
             else

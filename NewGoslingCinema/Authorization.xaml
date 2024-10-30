@@ -12,7 +12,7 @@
         <Button Style="{StaticResource MaterialDesignOutlinedSecondaryLightButton}" x:Name="SignIn" Content="Войти" HorizontalAlignment="Left" Margin="125,278,0,0" VerticalAlignment="Top" Width="100" Height="28" FontSize="14" FontWeight="Bold" Click="SignIn_Click"/>
         <Label Content="Логин" HorizontalAlignment="Left" Margin="156,55,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="#FF349FDA"/>
         <Label Content="Пароль" HorizontalAlignment="Left" Margin="148,138,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="#FF349FDA"/>
-        <TextBox Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" x:Name="Password" HorizontalAlignment="Left" Margin="50,174,0,0" VerticalAlignment="Top" Width="250" Height="36"/>
+        <TextBox MaxLength="50" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" x:Name="Password" HorizontalAlignment="Left" Margin="50,174,0,0" VerticalAlignment="Top" Width="250" Height="36"/>
         <TextBlock x:Name="reg" HorizontalAlignment="Left" Margin="83,330,0,0" Text="Нет аккаунта? Зарегистрироваться" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" MouseDown="reg_MouseDown"/>
     </Grid>
 </Window>
