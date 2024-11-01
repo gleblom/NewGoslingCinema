@@ -25,9 +25,15 @@
         </ScrollViewer>
         <TextBox HorizontalAlignment="Left" Margin="1330,244,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <ToolBar Margin="0,0,758,0" Background="#FFEEF5FD"/>
-        <Expander ExpandDirection="Right" Header="Корзина" HorizontalAlignment="Left" Height="224" Margin="5,60,0,0" VerticalAlignment="Top" Width="340" FontSize="10">
+        <Expander ExpandDirection="Right" Header="Корзина" HorizontalAlignment="Left" Height="224" Margin="5,60,0,0" VerticalAlignment="Top" Width="357" FontSize="10">
             <StackPanel Width="301" Height="208" VerticalAlignment="Bottom" Margin="0,0,0,17">
-                <ListBox SelectionMode="Single" x:Name="Cage" d:ItemsSource="{Binding}" Width="293" Height="208" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <ListBox SelectionMode="Single" x:Name="Cage" d:ItemsSource="{Binding}" Width="297" Height="208" HorizontalAlignment="Left">
+                    <ListBox.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem x:Name="BuyAll" Header="Купить всё" Click="BuyAll_Click"></MenuItem>
+                            <MenuItem Name="WasteAll" Header="Очистить всё" Click="WasteAll_Click"></MenuItem>
+                        </ContextMenu>
+                    </ListBox.ContextMenu>
                     <ListBox.ItemContainerStyle>
                         <Style TargetType="{x:Type ListBoxItem}">
                             <Setter Property="ContextMenu">
@@ -55,8 +61,8 @@
                 </ListBox>
             </StackPanel>
         </Expander>
-        <Expander ExpandDirection="Right" Header="Билеты" Margin="5,291,471,28" FontSize="10">
-            <ListBox SelectionMode="Single" x:Name="Tickets" d:ItemsSource="{Binding}" Height="277" Width="310" VerticalAlignment="Top" HorizontalAlignment="Left">
+        <Expander ExpandDirection="Right" Header="Билеты" Margin="5,291,454,28" FontSize="10">
+            <ListBox SelectionMode="Single" x:Name="Tickets" d:ItemsSource="{Binding}" Height="277" Width="333" VerticalAlignment="Top" HorizontalAlignment="Center">
                 <ListBox.ContextMenu>
                     <ContextMenu>
                         <MenuItem Header="Показать папку с билетами" Click="MenuItem_Click"></MenuItem>
@@ -71,6 +77,13 @@
                                         <MenuItem.Style>
                                             <Style TargetType="{x:Type MenuItem}">
                                                 <EventSetter Event="MenuItem.Click" Handler="SavePDF"/>
+                                            </Style>
+                                        </MenuItem.Style>
+                                    </MenuItem>
+                                    <MenuItem Header="Показать папку с билетами">
+                                        <MenuItem.Style>
+                                            <Style TargetType="{x:Type MenuItem}">
+                                                <EventSetter Event="MenuItem.Click" Handler="MenuItem_Click"></EventSetter>
                                             </Style>
                                         </MenuItem.Style>
                                     </MenuItem>

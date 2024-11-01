@@ -12,6 +12,7 @@ using iTextSharp.text.pdf;
 using Font = iTextSharp.text.Font;
 using Paragraph = iTextSharp.text.Paragraph;
 using System.Diagnostics;
+using System.Reflection.Metadata;
 
 namespace NewGoslingCinema
 {
@@ -145,7 +146,7 @@ namespace NewGoslingCinema
             }
         }
 
-        private void Waste_Click(object sender, RoutedEventArgs e)
+        private void WasteAll_Click(object sender, RoutedEventArgs e)
         {
             Cage.Items.Clear();
         }
@@ -196,19 +197,41 @@ namespace NewGoslingCinema
 
                 string a = Tickets.SelectedItem.ToString();
                 string i = Convert.ToString(Tickets.SelectedIndex) + ".pdf";
-                string path = $"Tickets/{i}";
-                var document = new Document(PageSize.A7, 20, 20, 30, 20);
-                string ttf = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "ARIALNBI.TTF");
-                var baseFont = BaseFont.CreateFont(ttf, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
-                var font = new Font(baseFont, Font.DEFAULTSIZE, Font.NORMAL);
-                using (var writer = PdfWriter.GetInstance(document, new FileStream(path, FileMode.Create)))
+                string path = Directory.GetCurrentDirectory() + $@"\Tickets";
+                if(Directory.Exists(path)) 
                 {
+                    path = Directory.GetCurrentDirectory() + $@"\Tickets\{i}";
+                    var document = new Document(PageSize.A7, 20, 20, 30, 20);
+                    string ttf = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "ARIALNBI.TTF");
+                    var baseFont = BaseFont.CreateFont(ttf, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+                    var font = new Font(baseFont, Font.DEFAULTSIZE, Font.NORMAL);
+                    using (var writer = PdfWriter.GetInstance(document, new FileStream(path, FileMode.Create)))
+                    {
 
-                    document.Open();
-                    document.NewPage();
-                    document.Add(new Paragraph(a, font));
-                    document.Close();
-                    writer.Close();
+                        document.Open();
+                        document.NewPage();
+                        document.Add(new Paragraph(a, font));
+                        document.Close();
+                        writer.Close();
+                    }
+                }
+                else
+                {
+                    Directory.CreateDirectory(path);
+                    path = Directory.GetCurrentDirectory() + $@"\Tickets\{i}";
+                    var document = new Document(PageSize.A7, 20, 20, 30, 20);
+                    string ttf = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "ARIALNBI.TTF");
+                    var baseFont = BaseFont.CreateFont(ttf, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+                    var font = new Font(baseFont, Font.DEFAULTSIZE, Font.NORMAL);
+                    using (var writer = PdfWriter.GetInstance(document, new FileStream(path, FileMode.Create)))
+                    {
+
+                        document.Open();
+                        document.NewPage();
+                        document.Add(new Paragraph(a, font));
+                        document.Close();
+                        writer.Close();
+                    }
                 }
             }
             catch
@@ -219,8 +242,37 @@ namespace NewGoslingCinema
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
+
             string path = Directory.GetCurrentDirectory() + @"\Tickets";
-            Process.Start("explorer.exe", path);
+            if (Directory.Exists(path))
+            {
+                Process.Start("explorer.exe", path);
+            }
+            else 
+            {
+                Directory.CreateDirectory(path);
+                Process.Start("explorer.exe", path);
+            }
+        }
+
+        private void BuyAll_Click(object sender, RoutedEventArgs e)
+        {
+            if(Cage.Items.Count > 0) 
+            {
+                int i = 0;
+
+                foreach (var item in Cage.Items)
+                {
+                    SqlClass.Tickets(name, dates[i], times[i], pageFilms[i]);
+                    i++;
+                    Tickets.Items.Add(item);
+                }
+                Cage.Items.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Корзина пуста!", "Ошибка", MessageBoxButton.OKCancel, MessageBoxImage.Stop);
+            }
         }
     }
 }

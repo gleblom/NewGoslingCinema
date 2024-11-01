@@ -43,7 +43,6 @@ namespace NewGoslingCinema
                 }
                 await reader.CloseAsync();
             }
-            com = null;
 
             return -2;
         }
@@ -61,7 +60,6 @@ namespace NewGoslingCinema
                 await com.ExecuteNonQueryAsync();
 
             }
-            com = null;
 
             
 
@@ -80,7 +78,6 @@ namespace NewGoslingCinema
                 adapter.Fill(table);
                 grid.DataContext = table;
             }
-            com = null;
 
         }
         public static async void Delete(object id)
@@ -94,7 +91,6 @@ namespace NewGoslingCinema
                 com.Parameters.AddWithValue("@ID", id);
                 await com.ExecuteNonQueryAsync();
             }
-            com = null;
 
         }
         public static async void ShowSessions(string film, ListBox list)
@@ -123,7 +119,6 @@ namespace NewGoslingCinema
                 await reader.CloseAsync();
 
             }
-            com = null;
         }
         public static async void Tickets(string userName, string date, string time, string film)
         {
@@ -139,7 +134,6 @@ namespace NewGoslingCinema
                 com.Parameters.AddWithValue("@Film", film);
                 await com.ExecuteNonQueryAsync();
             }
-            com = null;
         }
         public static async void SelectTickets(string name, ListBox list)
         {
@@ -163,7 +157,6 @@ namespace NewGoslingCinema
                 }
                 await reader.CloseAsync();
             }
-            com = null;
         }
         public static async Task<int> Registration(string login, string password)
         {
@@ -180,14 +173,12 @@ namespace NewGoslingCinema
                 {
                     if (await reader.ReadAsync())
                     {
-                        con = null;
                         return 1;
                     }
                 }
                 await reader.CloseAsync();
                 await com.ExecuteNonQueryAsync();
             }
-            con = null;
             return 0;
         }
 
