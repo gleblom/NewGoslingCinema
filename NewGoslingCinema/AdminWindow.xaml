@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="AdminWindow" Height="380" Width="548">
     <Grid>
-        <xc:DateTimePicker x:Name="DateTime" Margin="299,10,10,218" TimeFormat="ShortTime" TimeFormatString="t">
+        <xc:DateTimePicker x:Name="DateTimer" Margin="299,10,10,218" TimeFormat="ShortTime" TimeFormatString="t">
 
         </xc:DateTimePicker>
         <ListBox x:Name="FilmList" Margin="299,151,10,47"/>

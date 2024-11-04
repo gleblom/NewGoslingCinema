@@ -27,7 +27,7 @@
         <ToolBar Margin="0,0,758,0" Background="#FFEEF5FD"/>
         <Expander ExpandDirection="Right" Header="Корзина" HorizontalAlignment="Left" Height="224" Margin="5,60,0,0" VerticalAlignment="Top" Width="357" FontSize="10">
             <StackPanel Width="301" Height="208" VerticalAlignment="Bottom" Margin="0,0,0,17">
-                <ListBox SelectionMode="Single" x:Name="Cage" d:ItemsSource="{Binding}" Width="297" Height="208" HorizontalAlignment="Left">
+                <ListBox SelectionMode="Single" x:Name="Cage" d:ItemsSource="{Binding}" Width="292" Height="208" HorizontalAlignment="Left">
                     <ListBox.ContextMenu>
                         <ContextMenu>
                             <MenuItem x:Name="BuyAll" Header="Купить всё" Click="BuyAll_Click"></MenuItem>
@@ -62,7 +62,7 @@
             </StackPanel>
         </Expander>
         <Expander ExpandDirection="Right" Header="Билеты" Margin="5,291,454,28" FontSize="10">
-            <ListBox SelectionMode="Single" x:Name="Tickets" d:ItemsSource="{Binding}" Height="277" Width="333" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <ListBox SelectionMode="Single" x:Name="Tickets" d:ItemsSource="{Binding}" Height="277" Width="299" VerticalAlignment="Top" HorizontalAlignment="Center">
                 <ListBox.ContextMenu>
                     <ContextMenu>
                         <MenuItem Header="Показать папку с билетами" Click="MenuItem_Click"></MenuItem>

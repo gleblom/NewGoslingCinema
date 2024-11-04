@@ -3,12 +3,13 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using System.Windows.Controls;
+using System.Collections.Generic;
 
 namespace NewGoslingCinema
 {
     class SqlClass
     {
-        static string str = "Data Source=510-013;Initial Catalog=NewCinema;Integrated Security=True;Encrypt=False";
+        static string str = "Data Source=DESKTOP-1U9FDH3;Initial Catalog=NewCinema;Integrated Security=True";
         // Data Source=DESKTOP-1U9FDH3;Initial Catalog=NewCinema;Integrated Security=True
         // Data Source=510-013;Initial Catalog=NewCinema;Integrated Security=True;Encrypt=False
 
@@ -77,6 +78,33 @@ namespace NewGoslingCinema
                 adapter.SelectCommand = com;
                 adapter.Fill(table);
                 grid.DataContext = table;
+            }
+
+        }
+        public static async Task<List<DateTime>> Sessione()
+        {
+            con = ConnectTo(con);
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable table = new DataTable();
+            using (con)
+            {
+                await con.OpenAsync();
+                com = new SqlCommand("GetDateTime", con);
+                com.CommandType = CommandType.StoredProcedure;
+                reader = await com.ExecuteReaderAsync();
+                List<DateTime> dateTimes = new List<DateTime>();
+                if (reader.HasRows)
+                {
+                    while(await reader.ReadAsync())
+                    {
+                        TimeSpan time = reader.GetTimeSpan(0);
+                        DateTime date = reader.GetDateTime(1);
+                        DateTime result = date + time;
+                        dateTimes.Add(result);
+                    }
+                }
+                await reader.CloseAsync();
+                return dateTimes;
             }
 
         }
@@ -180,6 +208,20 @@ namespace NewGoslingCinema
                 await com.ExecuteNonQueryAsync();
             }
             return 0;
+        }
+        public static async void DeleteDate(string date, string time)
+        {
+            con = ConnectTo(con);
+            using (con)
+            {
+                await con.OpenAsync();
+                com = new SqlCommand("DeleteDate", con);
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.AddWithValue("@Date", date);
+                com.Parameters.AddWithValue("@Time", time);
+                com.ExecuteNonQuery();
+            }
+
         }
 
     }

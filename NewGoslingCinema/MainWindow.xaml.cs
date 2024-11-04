@@ -195,48 +195,39 @@ namespace NewGoslingCinema
             try
             {
 
-                string a = Tickets.SelectedItem.ToString();
+                string ticket = Tickets.SelectedItem.ToString();
                 string i = Convert.ToString(Tickets.SelectedIndex) + ".pdf";
                 string path = Directory.GetCurrentDirectory() + $@"\Tickets";
                 if(Directory.Exists(path)) 
                 {
-                    path = Directory.GetCurrentDirectory() + $@"\Tickets\{i}";
-                    var document = new Document(PageSize.A7, 20, 20, 30, 20);
-                    string ttf = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "ARIALNBI.TTF");
-                    var baseFont = BaseFont.CreateFont(ttf, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
-                    var font = new Font(baseFont, Font.DEFAULTSIZE, Font.NORMAL);
-                    using (var writer = PdfWriter.GetInstance(document, new FileStream(path, FileMode.Create)))
-                    {
-
-                        document.Open();
-                        document.NewPage();
-                        document.Add(new Paragraph(a, font));
-                        document.Close();
-                        writer.Close();
-                    }
+                    CreatePDF(path, ticket, i);
                 }
                 else
                 {
                     Directory.CreateDirectory(path);
-                    path = Directory.GetCurrentDirectory() + $@"\Tickets\{i}";
-                    var document = new Document(PageSize.A7, 20, 20, 30, 20);
-                    string ttf = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "ARIALNBI.TTF");
-                    var baseFont = BaseFont.CreateFont(ttf, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
-                    var font = new Font(baseFont, Font.DEFAULTSIZE, Font.NORMAL);
-                    using (var writer = PdfWriter.GetInstance(document, new FileStream(path, FileMode.Create)))
-                    {
-
-                        document.Open();
-                        document.NewPage();
-                        document.Add(new Paragraph(a, font));
-                        document.Close();
-                        writer.Close();
-                    }
+                    CreatePDF(path, ticket, i);
                 }
             }
             catch
             {
-                MessageBox.Show("Произошла ошибка!");
+
+            }
+        }
+        private void CreatePDF(string path, string info, string i)
+        {
+            path = Directory.GetCurrentDirectory() + $@"\Tickets\{i}";
+            var document = new Document(PageSize.A7, 20, 20, 30, 20);
+            string ttf = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "ARIALNBI.TTF");
+            var baseFont = BaseFont.CreateFont(ttf, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+            var font = new Font(baseFont, Font.DEFAULTSIZE, Font.NORMAL);
+            using (var writer = PdfWriter.GetInstance(document, new FileStream(path, FileMode.Create)))
+            {
+
+                document.Open();
+                document.NewPage();
+                document.Add(new Paragraph(info, font));
+                document.Close();
+                writer.Close();
             }
         }
 

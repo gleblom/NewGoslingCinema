@@ -2,19 +2,6 @@
   "version": 3,
   "targets": {
     "net5.0-windows7.0": {
-      "BouncyCastle.Cryptography/2.4.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/BouncyCastle.Cryptography.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/BouncyCastle.Cryptography.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "Dynamitey/2.0.10.189": {
         "type": "package",
         "dependencies": {
@@ -89,14 +76,10 @@
           "System.Drawing.Common": "4.7.0"
         },
         "compile": {
-          "lib/net5.0-windows7.0/ExtendedWPFConverters.dll": {
-            "related": ".xml"
-          }
+          "lib/net5.0-windows7.0/ExtendedWPFConverters.dll": {}
         },
         "runtime": {
-          "lib/net5.0-windows7.0/ExtendedWPFConverters.dll": {
-            "related": ".xml"
-          }
+          "lib/net5.0-windows7.0/ExtendedWPFConverters.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.WindowsDesktop.App.WPF"
@@ -105,14 +88,10 @@
       "ExtendedWPFVisualTreeHelper/2.0.2": {
         "type": "package",
         "compile": {
-          "lib/net5.0-windows7.0/ExtendedWPFVisualTreeHelper.dll": {
-            "related": ".xml"
-          }
+          "lib/net5.0-windows7.0/ExtendedWPFVisualTreeHelper.dll": {}
         },
         "runtime": {
-          "lib/net5.0-windows7.0/ExtendedWPFVisualTreeHelper.dll": {
-            "related": ".xml"
-          }
+          "lib/net5.0-windows7.0/ExtendedWPFVisualTreeHelper.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.WindowsDesktop.App.WPF"
@@ -121,21 +100,14 @@
       "HtmlAgilityPack/1.11.66": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/HtmlAgilityPack.dll": {
-            "related": ".deps.json;.pdb;.xml"
-          }
+          "lib/netstandard2.0/HtmlAgilityPack.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/HtmlAgilityPack.dll": {
-            "related": ".deps.json;.pdb;.xml"
-          }
+          "lib/netstandard2.0/HtmlAgilityPack.dll": {}
         }
       },
       "iTextSharp/5.5.13.4": {
         "type": "package",
-        "dependencies": {
-          "BouncyCastle.Cryptography": "2.4.0"
-        },
         "compile": {
           "lib/net461/itextsharp.dll": {}
         },
@@ -146,14 +118,10 @@
       "MaterialDesignColors/2.0.6": {
         "type": "package",
         "compile": {
-          "lib/netcoreapp3.1/MaterialDesignColors.dll": {
-            "related": ".pdb"
-          }
+          "lib/netcoreapp3.1/MaterialDesignColors.dll": {}
         },
         "runtime": {
-          "lib/netcoreapp3.1/MaterialDesignColors.dll": {
-            "related": ".pdb"
-          }
+          "lib/netcoreapp3.1/MaterialDesignColors.dll": {}
         }
       },
       "MaterialDesignExtensions/3.3.0": {
@@ -163,14 +131,10 @@
           "MaterialDesignThemes": "3.2.0"
         },
         "compile": {
-          "lib/netcoreapp3.1/MaterialDesignExtensions.dll": {
-            "related": ".xml"
-          }
+          "lib/netcoreapp3.1/MaterialDesignExtensions.dll": {}
         },
         "runtime": {
-          "lib/netcoreapp3.1/MaterialDesignExtensions.dll": {
-            "related": ".xml"
-          }
+          "lib/netcoreapp3.1/MaterialDesignExtensions.dll": {}
         },
         "resource": {
           "lib/netcoreapp3.1/Ru/MaterialDesignExtensions.resources.dll": {
@@ -217,14 +181,10 @@
           "MaterialDesignThemes": "4.5.0"
         },
         "compile": {
-          "lib/netcoreapp3.1/MaterialDesignThemes.Wpf.AddOns.dll": {
-            "related": ".xml"
-          }
+          "lib/netcoreapp3.1/MaterialDesignThemes.Wpf.AddOns.dll": {}
         },
         "runtime": {
-          "lib/netcoreapp3.1/MaterialDesignThemes.Wpf.AddOns.dll": {
-            "related": ".xml"
-          }
+          "lib/netcoreapp3.1/MaterialDesignThemes.Wpf.AddOns.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.WindowsDesktop.App.WPF"
@@ -236,14 +196,10 @@
           "MaterialDesignColors": "[2.0.6, 3.0.0)"
         },
         "compile": {
-          "lib/netcoreapp3.1/MaterialDesignThemes.Wpf.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/netcoreapp3.1/MaterialDesignThemes.Wpf.dll": {}
         },
         "runtime": {
-          "lib/netcoreapp3.1/MaterialDesignThemes.Wpf.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/netcoreapp3.1/MaterialDesignThemes.Wpf.dll": {}
         },
         "build": {
           "build/MaterialDesignThemes.targets": {}
@@ -283,14 +239,10 @@
           "System.Security.Principal.Windows": "4.7.0"
         },
         "compile": {
-          "ref/netstandard2.0/_._": {
-            "related": ".xml"
-          }
+          "ref/netstandard2.0/_._": {}
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.Win32.Registry.dll": {
-            "related": ".xml"
-          }
+          "lib/netstandard2.0/Microsoft.Win32.Registry.dll": {}
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netstandard2.0/Microsoft.Win32.Registry.dll": {
@@ -309,14 +261,10 @@
           "Microsoft.NETCore.Platforms": "3.1.0"
         },
         "compile": {
-          "ref/netstandard2.0/_._": {
-            "related": ".xml"
-          }
+          "ref/netstandard2.0/_._": {}
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll": {
-            "related": ".xml"
-          }
+          "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll": {}
         },
         "runtimeTargets": {
           "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll": {
@@ -366,9 +314,7 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.0/System.ComponentModel.dll": {
-            "related": ".xml"
-          }
+          "ref/netstandard1.0/System.ComponentModel.dll": {}
         },
         "runtime": {
           "lib/netstandard1.3/System.ComponentModel.dll": {}
@@ -382,14 +328,10 @@
           "runtime.native.System.Data.SqlClient.sni": "4.7.0"
         },
         "compile": {
-          "ref/netcoreapp2.1/System.Data.SqlClient.dll": {
-            "related": ".xml"
-          }
+          "ref/netcoreapp2.1/System.Data.SqlClient.dll": {}
         },
         "runtime": {
-          "lib/netcoreapp2.1/System.Data.SqlClient.dll": {
-            "related": ".xml"
-          }
+          "lib/netcoreapp2.1/System.Data.SqlClient.dll": {}
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netcoreapp2.1/System.Data.SqlClient.dll": {
@@ -409,9 +351,7 @@
           "Microsoft.Win32.SystemEvents": "4.7.0"
         },
         "compile": {
-          "ref/netcoreapp3.0/System.Drawing.Common.dll": {
-            "related": ".xml"
-          }
+          "ref/netcoreapp3.0/System.Drawing.Common.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/System.Drawing.Common.dll": {}
@@ -434,9 +374,7 @@
           "Microsoft.NETCore.Targets": "1.1.0"
         },
         "compile": {
-          "ref/netstandard1.5/System.Runtime.dll": {
-            "related": ".xml"
-          }
+          "ref/netstandard1.5/System.Runtime.dll": {}
         }
       },
       "System.Security.AccessControl/4.7.0": {
@@ -446,14 +384,10 @@
           "System.Security.Principal.Windows": "4.7.0"
         },
         "compile": {
-          "ref/netstandard2.0/_._": {
-            "related": ".xml"
-          }
+          "ref/netstandard2.0/_._": {}
         },
         "runtime": {
-          "lib/netstandard2.0/System.Security.AccessControl.dll": {
-            "related": ".xml"
-          }
+          "lib/netstandard2.0/System.Security.AccessControl.dll": {}
         },
         "runtimeTargets": {
           "runtimes/win/lib/netcoreapp2.0/System.Security.AccessControl.dll": {
@@ -465,14 +399,10 @@
       "System.Security.Principal.Windows/4.7.0": {
         "type": "package",
         "compile": {
-          "ref/netcoreapp3.0/_._": {
-            "related": ".xml"
-          }
+          "ref/netcoreapp3.0/_._": {}
         },
         "runtime": {
-          "lib/netstandard2.0/System.Security.Principal.Windows.dll": {
-            "related": ".xml"
-          }
+          "lib/netstandard2.0/System.Security.Principal.Windows.dll": {}
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netcoreapp2.1/System.Security.Principal.Windows.dll": {
@@ -488,26 +418,6 @@
     }
   },
   "libraries": {
-    "BouncyCastle.Cryptography/2.4.0": {
-      "sha512": "SwXsAV3sMvAU/Nn31pbjhWurYSjJ+/giI/0n6tCrYoupEK34iIHCuk3STAd9fx8yudM85KkLSVdn951vTng/vQ==",
-      "type": "package",
-      "path": "bouncycastle.cryptography/2.4.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.md",
-        "README.md",
-        "bouncycastle.cryptography.2.4.0.nupkg.sha512",
-        "bouncycastle.cryptography.nuspec",
-        "lib/net461/BouncyCastle.Cryptography.dll",
-        "lib/net461/BouncyCastle.Cryptography.xml",
-        "lib/net6.0/BouncyCastle.Cryptography.dll",
-        "lib/net6.0/BouncyCastle.Cryptography.xml",
-        "lib/netstandard2.0/BouncyCastle.Cryptography.dll",
-        "lib/netstandard2.0/BouncyCastle.Cryptography.xml",
-        "packageIcon.png"
-      ]
-    },
     "Dynamitey/2.0.10.189": {
       "sha512": "sKo8BlCgQTOSFFK4RlMvC8abp0NqZrTd017fishVrkoqggNBpwa4RGq88wPjyedk5GjTWeB8/kGrbXES+Rcl7Q==",
       "type": "package",
@@ -1408,34 +1318,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\all_local\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\glebl\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\all_local\\source\\repos\\NewGoslingCinema\\NewGoslingCinema\\NewGoslingCinema.csproj",
+      "projectUniqueName": "C:\\Users\\glebl\\source\\repos\\NewGoslingCinema\\NewGoslingCinema\\NewGoslingCinema.csproj",
       "projectName": "NewGoslingCinema",
-      "projectPath": "C:\\Users\\all_local\\source\\repos\\NewGoslingCinema\\NewGoslingCinema\\NewGoslingCinema.csproj",
-      "packagesPath": "C:\\Users\\all_local\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\all_local\\source\\repos\\NewGoslingCinema\\NewGoslingCinema\\obj\\",
+      "projectPath": "C:\\Users\\glebl\\source\\repos\\NewGoslingCinema\\NewGoslingCinema\\NewGoslingCinema.csproj",
+      "packagesPath": "C:\\Users\\glebl\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\glebl\\source\\repos\\NewGoslingCinema\\NewGoslingCinema\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\all_local\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\glebl\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net5.0-windows"
+        "net5.0-windows7.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1448,11 +1350,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -1490,8 +1387,7 @@
           "net47",
           "net471",
           "net472",
-          "net48",
-          "net481"
+          "net48"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -1503,7 +1399,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
       }
     }
   },
@@ -1512,7 +1408,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Пакет \"iTextSharp 5.5.13.4\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net5.0-windows7.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "message": "Пакет \"iTextSharp 5.5.13.4\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\", а не целевой платформы проекта \"net5.0-windows7.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
       "libraryId": "iTextSharp",
       "targetGraphs": [
         "net5.0-windows7.0"

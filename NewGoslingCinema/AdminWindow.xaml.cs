@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Windows;
 
 namespace NewGoslingCinema
@@ -10,13 +11,14 @@ namespace NewGoslingCinema
     {
         string film;
 
-        public List<Film> films = Film.GetFilms();
+        List<Film> films = Film.GetFilms();
         public AdminWindow()
         {
             InitializeComponent();
             Parser.GetName(films);
             FillFilms();
             SqlClass.Sessione(Sessions);
+            DateCheck.DeletePastSessions();
         }
         private void FillFilms()
         {
@@ -29,14 +31,22 @@ namespace NewGoslingCinema
 
         private void Insert_Click(object sender, RoutedEventArgs e)
         {
-            string dates = Convert.ToString(DateTime.Value);
+            string dates = Convert.ToString(DateTimer.Value);
             if (FilmList.SelectedItem != null && dates != "")
             {
-                film = FilmList.SelectedItem.ToString();
+                if(DateTime.Now < DateTimer.Value)
+                {
+                    film = FilmList.SelectedItem.ToString();
 
-                string[] dt = SessionParser.TimeDateParse(dates);
-                SqlClass.AddSession(film, dt[1], dt[0]);
-                SqlClass.Sessione(Sessions);
+                    string[] dt = SessionParser.TimeDateParse(dates);
+                    SqlClass.AddSession(film, dt[1], dt[0]);
+                    Thread.Sleep(100);
+                    SqlClass.Sessione(Sessions);
+                }
+                else
+                {
+                    MessageBox.Show("Невозможно добавить сеанс!");
+                }
             }
             else
             {
