@@ -12,7 +12,6 @@ using iTextSharp.text.pdf;
 using Font = iTextSharp.text.Font;
 using Paragraph = iTextSharp.text.Paragraph;
 using System.Diagnostics;
-using System.Reflection.Metadata;
 
 namespace NewGoslingCinema
 {
@@ -171,25 +170,18 @@ namespace NewGoslingCinema
 
         private void info_Click(object sender, RoutedEventArgs e)
         {
-            int i = 300;
-            if (Tickets.Items.Count > 20)
-            {
-                i = 270;
 
-            }
-            if(Tickets.Items.Count > 35)
+            DateTime today = DateTime.Today;
+            int m = today.Month;
+            int d = today.Day;
+            if (m == 11 && d == 12)
             {
-                i = 240;
+                GoslingBirthDay();
             }
-            if(Tickets.Items.Count > 50)
+            else
             {
-                i = 210;
+                ShowInfo();
             }
-            MessageBox.Show("Обычная стоимость билета - 300. Для постоянных посетителей действуют постоянные скидки: " +
-                $"\n Текущая стоимость билета - {i}" +
-                "\n Куплено более 20 билетов - 10%" +
-                "\n Куплено более 35 билетов - 20%" +
-                "\n Куплено более 50 билетов - 30%", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         private void SavePDF(object sender, RoutedEventArgs e) {
             try
@@ -264,6 +256,47 @@ namespace NewGoslingCinema
             {
                 MessageBox.Show("Корзина пуста!", "Ошибка", MessageBoxButton.OKCancel, MessageBoxImage.Stop);
             }
+        }
+        private void ShowInfo()
+        {
+            int i = 300;
+            if (Tickets.Items.Count > 20)
+            {
+                i = 270;
+
+            }
+            if (Tickets.Items.Count > 35)
+            {
+                i = 240;
+            }
+            if (Tickets.Items.Count > 50)
+            {
+                i = 210;
+            }
+            MessageBox.Show("Обычная стоимость билета - 300. Для постоянных посетителей действуют постоянные скидки: " +
+                $"\n Текущая стоимость билета - {i}" +
+                "\n Куплено более 20 билетов - 10%" +
+                "\n Куплено более 35 билетов - 20%" +
+                "\n Куплено более 50 билетов - 30%", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+        private void GoslingBirthDay()
+        {
+            int i = 150;
+            if (Tickets.Items.Count > 20)
+            {
+                i = 135;
+
+            }
+            if (Tickets.Items.Count > 35)
+            {
+                i = 120;
+            }
+            if (Tickets.Items.Count > 50)
+            {
+                i = 105;
+            }
+            MessageBox.Show("Специально предложение! В честь дня рождения Райана Гослинга действует скидка в 50%!" +
+                $"\n Текущая стоимость билета - {i}", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }

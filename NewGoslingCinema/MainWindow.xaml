@@ -24,45 +24,52 @@
             </ScrollViewer.Background>
         </ScrollViewer>
         <TextBox HorizontalAlignment="Left" Margin="1330,244,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <ToolBar Margin="0,0,758,0" Background="#FFEEF5FD"/>
-        <Expander ExpandDirection="Right" Header="Корзина" HorizontalAlignment="Left" Height="224" Margin="5,60,0,0" VerticalAlignment="Top" Width="357" FontSize="10">
-            <StackPanel Width="301" Height="208" VerticalAlignment="Bottom" Margin="0,0,0,17">
-                <ListBox SelectionMode="Single" x:Name="Cage" d:ItemsSource="{Binding}" Width="292" Height="208" HorizontalAlignment="Left">
-                    <ListBox.ContextMenu>
-                        <ContextMenu>
-                            <MenuItem x:Name="BuyAll" Header="Купить всё" Click="BuyAll_Click"></MenuItem>
-                            <MenuItem Name="WasteAll" Header="Очистить всё" Click="WasteAll_Click"></MenuItem>
-                        </ContextMenu>
-                    </ListBox.ContextMenu>
-                    <ListBox.ItemContainerStyle>
-                        <Style TargetType="{x:Type ListBoxItem}">
-                            <Setter Property="ContextMenu">
-                                <Setter.Value>
-                                    <ContextMenu>
-                                        <MenuItem Header="Очистить" x:Name="Delete">
-                                            <MenuItem.Style>
-                                                <Style TargetType="{x:Type MenuItem}">
-                                                    <EventSetter Event="MenuItem.Click" Handler="Delete_Click"/>
-                                                </Style>
-                                            </MenuItem.Style>
-                                        </MenuItem>
-                                        <MenuItem Header="Купить" x:Name="Buy">
-                                            <MenuItem.Style>
-                                                <Style TargetType="{x:Type MenuItem}">
-                                                    <EventSetter Event="MenuItem.Click" Handler="Buy_Click"/>
-                                                </Style>
-                                            </MenuItem.Style>
-                                        </MenuItem>
-                                    </ContextMenu>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </ListBox.ItemContainerStyle>
-                </ListBox>
-            </StackPanel>
+        <ToolBar Margin="0,0,745,0" Background="#FFEEF5FD"/>
+        <Expander ExpandDirection="Right" Header="Корзина" Margin="4,77,385,268">
+            <ListBox SelectionMode="Single" x:Name="Cage" d:ItemsSource="{Binding}" Width="372" Height="207
+                     " HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5" Margin="0,2,0,-20">
+                <ListBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="0.365"/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="0.994"/>
+                    </TransformGroup>
+                </ListBox.RenderTransform>
+                <ListBox.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem x:Name="BuyAll" Header="Купить всё" Click="BuyAll_Click"></MenuItem>
+                        <MenuItem Name="WasteAll" Header="Очистить всё" Click="WasteAll_Click"></MenuItem>
+                    </ContextMenu>
+                </ListBox.ContextMenu>
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListBoxItem}">
+                        <Setter Property="ContextMenu">
+                            <Setter.Value>
+                                <ContextMenu>
+                                    <MenuItem Header="Очистить" x:Name="Delete">
+                                        <MenuItem.Style>
+                                            <Style TargetType="{x:Type MenuItem}">
+                                                <EventSetter Event="MenuItem.Click" Handler="Delete_Click"/>
+                                            </Style>
+                                        </MenuItem.Style>
+                                    </MenuItem>
+                                    <MenuItem Header="Купить" x:Name="Buy">
+                                        <MenuItem.Style>
+                                            <Style TargetType="{x:Type MenuItem}">
+                                                <EventSetter Event="MenuItem.Click" Handler="Buy_Click"/>
+                                            </Style>
+                                        </MenuItem.Style>
+                                    </MenuItem>
+                                </ContextMenu>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </ListBox>
         </Expander>
-        <Expander ExpandDirection="Right" Header="Билеты" Margin="5,291,454,28" FontSize="10">
-            <ListBox SelectionMode="Single" x:Name="Tickets" d:ItemsSource="{Binding}" Height="277" Width="299" VerticalAlignment="Top" HorizontalAlignment="Center">
+        <Expander ExpandDirection="Right" Header="Билеты" Margin="11,291,385,20">
+            <ListBox SelectionMode="Single" x:Name="Tickets" d:ItemsSource="{Binding}" Height="207" Width="372" VerticalAlignment="Center" HorizontalAlignment="Left">
                 <ListBox.ContextMenu>
                     <ContextMenu>
                         <MenuItem Header="Показать папку с билетами" Click="MenuItem_Click"></MenuItem>
