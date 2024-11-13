@@ -154,3 +154,4 @@ C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\obj\Debug\net5
 C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\bin\Debug\net5.0-windows\BouncyCastle.Cryptography.dll
 C:\Users\all_local\source\repos\NewGoslingCinema\NewGoslingCinema\bin\Debug\net5.0-windows\itextsharp.dll
 C:\Users\glebl\source\repos\NewGoslingCinema\NewGoslingCinema\bin\Debug\net5.0-windows\itextsharp.dll
+C:\Users\glebl\source\repos\NewGoslingCinema\NewGoslingCinema\bin\Debug\net5.0-windows\WpfAnimatedGif.dll

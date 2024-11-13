@@ -15,12 +15,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Гослинг drive.gif" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Extended.Wpf.Toolkit" Version="4.6.1" />
     <PackageReference Include="HtmlAgilityPack" Version="1.11.66" />
     <PackageReference Include="iTextSharp" Version="5.5.13.4" />
     <PackageReference Include="MaterialDesignExtensions" Version="3.3.0" />
     <PackageReference Include="MaterialDesignInXamlToolkitAddOns" Version="0.0.6" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+    <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Гослинг drive.gif" />
   </ItemGroup>
 
 </Project>

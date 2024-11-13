@@ -3,12 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
         xmlns:local="clr-namespace:NewGoslingCinema"
         mc:Ignorable="d"
-        Title="LoadWindow" Height="65" Width="280" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
+        Title="Загрузка..." Height="296" Width="278" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
     <Grid>
-        <ProgressBar HorizontalAlignment="Center" Height="16" Margin="0,36,0,0" VerticalAlignment="Top" Width="260" IsIndeterminate="True"/>
-        <Label Content="Выполняется вход в аккаунт... Пожалуйста, подождите" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="260" FontSize="10"/>
+        <ProgressBar HorizontalAlignment="Left" Height="16" Margin="10,266,0,0" VerticalAlignment="Top" Width="260" IsIndeterminate="True"/>
+        <Label Content="Выполняется вход в аккаунт... Пожалуйста, подождите" HorizontalAlignment="Left" Margin="10,240,0,0" VerticalAlignment="Top" Width="260" FontSize="10"/>
+        <Image gif:ImageBehavior.AnimatedSource="/Гослинг drive.gif" HorizontalAlignment="Left" Height="218" Margin="25,10,0,0" VerticalAlignment="Top" Width="265"/>
 
     </Grid>
 </Window>
