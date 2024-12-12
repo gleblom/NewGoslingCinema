@@ -17,8 +17,8 @@ namespace NewGoslingCinema
 
         public static List<Film> GetFilms()
         {
-            List<Film> films = new List<Film>(20);
-            for (int i = 0; i < 20; i++)
+            List<Film> films = new List<Film>(21);
+            for (int i = 0; i < 21; i++)
             {
                 Film film = new Film();
                 films.Add(film);
@@ -43,9 +43,12 @@ namespace NewGoslingCinema
             { "n", "b", "s", "p", "&", "h", "l", "e", "i", "d", "a", "l", "q", "u", "o", ";", "m", "e", "r"};
             foreach (var d in charsToRemove)
             {
-                foreach(var film in films)
+                foreach (var film in films)
                 {
-                    film.otherInfo = film.otherInfo.Replace(d, string.Empty);
+                    if (film.otherInfo != null)
+                    {
+                        film.otherInfo = film.otherInfo.Replace(d, string.Empty);
+                    }
                 }
             }
         }

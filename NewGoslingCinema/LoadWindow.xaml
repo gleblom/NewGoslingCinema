@@ -6,11 +6,10 @@
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
         xmlns:local="clr-namespace:NewGoslingCinema"
         mc:Ignorable="d"
-        Title="Загрузка..." Height="296" Width="278" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
+        Title="Загрузка..." Height="67" Width="278" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
     <Grid>
-        <ProgressBar HorizontalAlignment="Left" Height="16" Margin="10,266,0,0" VerticalAlignment="Top" Width="260" IsIndeterminate="True"/>
-        <Label Content="Выполняется вход в аккаунт... Пожалуйста, подождите" HorizontalAlignment="Left" Margin="10,240,0,0" VerticalAlignment="Top" Width="260" FontSize="10"/>
-        <Image gif:ImageBehavior.AnimatedSource="/Гослинг drive.gif" HorizontalAlignment="Left" Height="218" Margin="25,10,0,0" VerticalAlignment="Top" Width="265"/>
+        <ProgressBar HorizontalAlignment="Center" Height="16" Margin="0,38,0,0" VerticalAlignment="Top" Width="260" IsIndeterminate="True"/>
+        <Label Content="Выполняется вход в аккаунт... Пожалуйста, подождите" HorizontalAlignment="Center" Margin="0,12,0,0" VerticalAlignment="Top" Width="260" FontSize="10"/>
 
     </Grid>
 </Window>

@@ -23,7 +23,7 @@ namespace NewGoslingCinema
             int i = 0;
             foreach (var name in names)
             {
-                if (i != 20)
+                if (i != 21)
                 {
                     films[i].name = name.InnerText;
                     i++;
@@ -36,7 +36,7 @@ namespace NewGoslingCinema
             int i = 0;
             foreach (var url in ImgUrl)
             {
-                if (i != 20)
+                if (i != 21)
                 {
                     HtmlDocument doc = GetDocument(url);
                     var xpath = "//a[contains(@class, 'postersList_item grid_cell3')]";
@@ -62,7 +62,7 @@ namespace NewGoslingCinema
             int i = 0;
             foreach (var link in linkNodes)
             {
-                if (i != 20)
+                if (i != 21)
                 {
                     string href = link.Attributes["href"].Value;
                     filmLinks.Add(new Uri(baseUri, href).AbsoluteUri);
@@ -75,7 +75,7 @@ namespace NewGoslingCinema
             int i = 0;
             foreach (var url in urls)
             {
-                if (i != 20)
+                if (i != 21)
                 {
                     HtmlDocument document = GetDocument(url);
                     var imgs = "//a[contains(@data-subcontent-btn, 'posters')]";
@@ -83,10 +83,10 @@ namespace NewGoslingCinema
                     var baseUri = new Uri(url);
                     ImgUrl.Add(new Uri(baseUri, imgUrl).AbsoluteUri);
                     var gen = "//span[contains(@class, 'filmInfo_genreItem button-main')]";
-                    films[i].genre = document.DocumentNode.SelectSingleNode(gen).InnerText;                    
+                    films[i].genre = document.DocumentNode.SelectSingleNode(gen).InnerText;
                     var year = "//span[contains(@class, 'filmInfo_infoData')]";
                     var nodes = document.DocumentNode.SelectNodes(year);
-                    foreach(var node in nodes)
+                    foreach (var node in nodes)
                     {
                         if (node.InnerText.Length == 4)
                         {
@@ -97,7 +97,7 @@ namespace NewGoslingCinema
                     if (document.DocumentNode.SelectSingleNode(info)?.InnerText == null)
                     {
                         info = "//div[contains(@data-tabs-content-item, '1')]/div/div/p";
-                        if(document.DocumentNode.SelectSingleNode(info).InnerText == "Добро и зло под масками друг друга.")
+                        if (document.DocumentNode.SelectSingleNode(info)?.InnerText == "Добро и зло под масками друг друга.")
                         {
                             var sn = document.DocumentNode.SelectNodes(info);
                             foreach (var node in sn)
@@ -108,7 +108,7 @@ namespace NewGoslingCinema
                                 }
                             }
                         }
-                        else if(document.DocumentNode.SelectSingleNode(info).InnerText == "Когда речь идет о деньгах, совесть молчит. " +
+                        else if (document.DocumentNode.SelectSingleNode(info)?.InnerText == "Когда речь идет о деньгах, совесть молчит. " +
                             "А уж если речь об огромных деньгах!..")
                         {
                             var sn = document.DocumentNode.SelectNodes(info);
@@ -123,9 +123,16 @@ namespace NewGoslingCinema
                         }
                         else
                         {
-                            films[i].otherInfo = document.DocumentNode.SelectSingleNode(info).InnerText;
+                            if (i == 0)
+                            {
+
+                            }
+                            else
+                            {
+                                films[i].otherInfo = document.DocumentNode.SelectSingleNode(info).InnerText;
+                            }
                         }
-                        
+
 
                     }
                     else
@@ -136,6 +143,6 @@ namespace NewGoslingCinema
                 }
             }
         }
-        
+
     }
 }

@@ -6,12 +6,13 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using Image = System.Windows.Controls.Image;
-using iTextSharp.text;
-using Document = iTextSharp.text.Document;
-using iTextSharp.text.pdf;
-using Font = iTextSharp.text.Font;
-using Paragraph = iTextSharp.text.Paragraph;
 using System.Diagnostics;
+using iText.Kernel.Geom;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using System.Windows.Documents;
+using Paragraph = iText.Layout.Element.Paragraph;
 
 namespace NewGoslingCinema
 {
@@ -42,10 +43,16 @@ namespace NewGoslingCinema
 
         public List<string> pageFilms = new List<string>();
 
+        public int price;
+
+        public int fullPrice = 0;
+
 
         public MainWindow()
         {
             InitializeComponent();
+
+            SetPrice();
 
             Parser.GetName(films);
 
@@ -54,21 +61,25 @@ namespace NewGoslingCinema
             Film.ToNormalText(films);
 
             Parser.Image(films);
-           
+
             CreateImages(films);
         }
 
         private void CreateImages(List<Film> films)
         {
-            var sp = new StackPanel();
+            //sp.ItemHeight = 300;
+            //sp.ItemWidth = 250;
+            WrapPanel wp = new WrapPanel();
             for (int i = 0; i <films.Count; i++)
             {
                 Image image = new Image();
+                image.Width = 250;
+                image.Height = 300;
                 image.Source = films[i].image;
                 image.MouseDown += Image_MouseDown;
-                sp.Children.Add(image);
+                wp.Children.Add(image);
             }
-            Scroll.Content = sp;
+            Scroll.Content = wp;
         }
 
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
@@ -123,6 +134,8 @@ namespace NewGoslingCinema
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
+            fullPrice = fullPrice - price;
+            cost.Content = fullPrice;
             int i = Cage.SelectedIndex;
             dates.RemoveAt(i);
             times.RemoveAt(i);
@@ -134,6 +147,8 @@ namespace NewGoslingCinema
         {
             if (Cage.SelectedItem != null)
             {
+                fullPrice = fullPrice - price;
+                cost.Content = fullPrice;
                 int index = Cage.SelectedIndex;
                 session = Cage.SelectedItem.ToString();
                 SqlClass.Tickets(name, dates[index], times[index], pageFilms[index]);
@@ -148,6 +163,7 @@ namespace NewGoslingCinema
         private void WasteAll_Click(object sender, RoutedEventArgs e)
         {
             Cage.Items.Clear();
+            cost.Content = 0;
         }
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
@@ -200,27 +216,32 @@ namespace NewGoslingCinema
                     CreatePDF(path, ticket, i);
                 }
             }
-            catch
+            catch(Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
         }
         private void CreatePDF(string path, string info, string i)
         {
             path = Directory.GetCurrentDirectory() + $@"\Tickets\{i}";
-            var document = new Document(PageSize.A7, 20, 20, 30, 20);
-            string ttf = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "ARIALNBI.TTF");
-            var baseFont = BaseFont.CreateFont(ttf, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
-            var font = new Font(baseFont, Font.DEFAULTSIZE, Font.NORMAL);
-            using (var writer = PdfWriter.GetInstance(document, new FileStream(path, FileMode.Create)))
+            using (PdfWriter writer = new PdfWriter(path))
             {
-
-                document.Open();
-                document.NewPage();
-                document.Add(new Paragraph(info, font));
-                document.Close();
-                writer.Close();
+                using (PdfDocument pdfDocument = new PdfDocument(writer))
+                {
+                    Document document = new Document(pdfDocument);
+                    document.Add(new Paragraph(info));
+                    document.Close();
+                }
             }
+            //PdfWriter writer = new PdfWriter(path);
+            //PdfDocument pdf = new PdfDocument(writer);
+            //Document document = new Document(pdf);
+            //Paragraph header = new Paragraph("HEADER");
+
+            //document.Add(header);
+            //document.Close();
+
+
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -251,52 +272,65 @@ namespace NewGoslingCinema
                     Tickets.Items.Add(item);
                 }
                 Cage.Items.Clear();
+                cost.Content = 0;
             }
             else
             {
                 MessageBox.Show("Корзина пуста!", "Ошибка", MessageBoxButton.OKCancel, MessageBoxImage.Stop);
             }
         }
+
+        private void SetPrice()
+        {
+            price = 300;
+            DateTime today = DateTime.Today;
+            int m = today.Month;
+            int d = today.Day;
+            if (m == 11 && d == 12)
+            {
+                price = 150;
+                if (Tickets.Items.Count > 20)
+                {
+                    price = 135;
+
+                }
+                if (Tickets.Items.Count > 35)
+                {
+                    price = 120;
+                }
+                if (Tickets.Items.Count > 50)
+                {
+                    price = 105;
+                }
+            }
+            else
+            {
+                if (Tickets.Items.Count > 20)
+                {
+                    price = 270;
+                }
+                if (Tickets.Items.Count > 35)
+                {
+                    price = 240;
+                }
+                if (Tickets.Items.Count > 50)
+                {
+                    price = 210;
+                }
+            }
+        }
         private void ShowInfo()
         {
-            int i = 300;
-            if (Tickets.Items.Count > 20)
-            {
-                i = 270;
-
-            }
-            if (Tickets.Items.Count > 35)
-            {
-                i = 240;
-            }
-            if (Tickets.Items.Count > 50)
-            {
-                i = 210;
-            }
             MessageBox.Show("Обычная стоимость билета - 300. Для постоянных посетителей действуют постоянные скидки: " +
-                $"\n Текущая стоимость билета - {i}" +
+                $"\n Текущая стоимость билета - {price}" +
                 "\n Куплено более 20 билетов - 10%" +
                 "\n Куплено более 35 билетов - 20%" +
                 "\n Куплено более 50 билетов - 30%", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         private void GoslingBirthDay()
         {
-            int i = 150;
-            if (Tickets.Items.Count > 20)
-            {
-                i = 135;
-
-            }
-            if (Tickets.Items.Count > 35)
-            {
-                i = 120;
-            }
-            if (Tickets.Items.Count > 50)
-            {
-                i = 105;
-            }
             MessageBox.Show("Специально предложение! В честь дня рождения Райана Гослинга действует скидка в 50%!" +
-                $"\n Текущая стоимость билета - {i}", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+                $"\n Текущая стоимость билета - {price}", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }
