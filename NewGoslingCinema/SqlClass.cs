@@ -19,7 +19,7 @@ namespace NewGoslingCinema
 
 
         static SqlConnection ConnectTo(SqlConnection cnn)
-        {   
+        {
             cnn = new SqlConnection(str);
             return cnn;
         }
@@ -36,7 +36,7 @@ namespace NewGoslingCinema
                 reader = await com.ExecuteReaderAsync();
                 if (reader.HasRows)
                 {
-                    if(await reader.ReadAsync())
+                    if (await reader.ReadAsync())
                     {
                         con = null;
                         return reader.GetInt32(0);
@@ -62,7 +62,7 @@ namespace NewGoslingCinema
 
             }
 
-            
+
 
         }
         public static async void Sessione(DataGrid grid)
@@ -95,7 +95,7 @@ namespace NewGoslingCinema
                 List<DateTime> dateTimes = new List<DateTime>();
                 if (reader.HasRows)
                 {
-                    while(await reader.ReadAsync())
+                    while (await reader.ReadAsync())
                     {
                         TimeSpan time = reader.GetTimeSpan(0);
                         DateTime date = reader.GetDateTime(1);
@@ -111,7 +111,7 @@ namespace NewGoslingCinema
         public static async void Delete(object id)
         {
             con = ConnectTo(con);
-            using (con) 
+            using (con)
             {
                 await con.OpenAsync();
                 com = new SqlCommand("DeleteSession", con);
@@ -124,7 +124,7 @@ namespace NewGoslingCinema
         public static async void ShowSessions(string film, ListBox list)
         {
             con = ConnectTo(con);
-            using (con) 
+            using (con)
             {
                 await con.OpenAsync();
                 com = new SqlCommand("FilmPage", con);
@@ -133,7 +133,7 @@ namespace NewGoslingCinema
                 reader = await com.ExecuteReaderAsync();
                 if (reader.HasRows)
                 {
-                    while (await reader.ReadAsync()) 
+                    while (await reader.ReadAsync())
                     {
 
                         TimeSpan timeValue = reader.GetTimeSpan(0);
@@ -160,7 +160,7 @@ namespace NewGoslingCinema
                 com.Parameters.AddWithValue("@Date", date);
                 com.Parameters.AddWithValue("@Time", time);
                 com.Parameters.AddWithValue("@Film", film);
-                await com.ExecuteNonQueryAsync();
+                com.ExecuteNonQuery();
             }
         }
         public static async void SelectTickets(string name, ListBox list)
@@ -180,7 +180,7 @@ namespace NewGoslingCinema
                         string d = reader.GetString(0);
                         string t = reader.GetString(1);
                         string f = reader.GetString(2);
-                        list.Items.Add("Фильм: " + f + ", " + "Дата: " + d + " Время: " + t );
+                        list.Items.Add("Фильм: " + f + ", " + "Дата: " + d + " Время: " + t);
                     }
                 }
                 await reader.CloseAsync();
@@ -223,6 +223,56 @@ namespace NewGoslingCinema
             }
 
         }
+        public static async Task<int> AdminRegistration(string login, string password)
+        {
+            con = ConnectTo(con);
+            using (con)
+            {
+                await con.OpenAsync();
+                com = new SqlCommand("AdminReg", con);
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.AddWithValue("@Login", login);
+                com.Parameters.AddWithValue("@Password", password);
+                reader = await com.ExecuteReaderAsync();
+                if (reader.HasRows)
+                {
+                    if (await reader.ReadAsync())
+                    {
+                        return 1;
+                    }
+                }
+                await reader.CloseAsync();
+                await com.ExecuteNonQueryAsync();
+                return 0;
+            }
+        }
+        public static void SelectAdmins(DataGrid dataGrid)
+        {
+            con = ConnectTo(con);
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable table = new DataTable();
+            using (con)
+            {
+                con.Open();
+                com = new SqlCommand("SelectAdmins", con);
+                com.CommandType = CommandType.StoredProcedure;
+                adapter.SelectCommand = com;
+                adapter.Fill(table);
+                dataGrid.DataContext = table;
+            }
+        }
+        public static async void DeleteUser(object id)
+        {
+            con = ConnectTo(con);
+            using (con)
+            {
+                await con.OpenAsync();
+                com = new SqlCommand("DeleteUser", con);
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.AddWithValue("@UserID", id);
+                com.ExecuteNonQuery();
+            }
 
+        }
     }
 }

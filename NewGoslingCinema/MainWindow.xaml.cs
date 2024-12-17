@@ -13,6 +13,10 @@ using iText.Layout;
 using iText.Layout.Element;
 using System.Windows.Documents;
 using Paragraph = iText.Layout.Element.Paragraph;
+using iText.Kernel.Font;
+using iText.IO.Image;
+using QRCoder;
+using System.Drawing;
 
 namespace NewGoslingCinema
 {
@@ -51,8 +55,6 @@ namespace NewGoslingCinema
         public MainWindow()
         {
             InitializeComponent();
-
-            SetPrice();
 
             Parser.GetName(films);
 
@@ -123,6 +125,7 @@ namespace NewGoslingCinema
         {
 
             SqlClass.SelectTickets(name, Tickets);
+            SetPrice();
             loadWindow.Dispatcher.Invoke(CloseWindow);
 
         }
@@ -157,6 +160,7 @@ namespace NewGoslingCinema
                 times.RemoveAt(index);
                 pageFilms.RemoveAt(index);
                 Cage.Items.Remove(Cage.SelectedItem);
+                SetPrice();
             }
         }
 
@@ -224,26 +228,29 @@ namespace NewGoslingCinema
         private void CreatePDF(string path, string info, string i)
         {
             path = Directory.GetCurrentDirectory() + $@"\Tickets\{i}";
+
             using (PdfWriter writer = new PdfWriter(path))
             {
                 using (PdfDocument pdfDocument = new PdfDocument(writer))
                 {
-                    Document document = new Document(pdfDocument);
+                    Document document = new Document(pdfDocument, PageSize.A6);
+                    var font = PdfFontFactory.CreateFont("C:\\Windows\\Fonts\\arial.ttf", "Identity-H");
+                    document.SetFont(font);
+                    iText.Layout.Element.Image Image = new(ImageDataFactory.Create(CreateQR()));
                     document.Add(new Paragraph(info));
+                    document.Add(Image);
                     document.Close();
                 }
             }
-            //PdfWriter writer = new PdfWriter(path);
-            //PdfDocument pdf = new PdfDocument(writer);
-            //Document document = new Document(pdf);
-            //Paragraph header = new Paragraph("HEADER");
-
-            //document.Add(header);
-            //document.Close();
-
-
         }
-
+        private byte[] CreateQR()
+        {
+            QRCodeGenerator qRCodeGenerator = new QRCodeGenerator();
+            QRCodeData qRCodeData = qRCodeGenerator.CreateQrCode("Самый уникальный QR для самого уникального кинотеатра!", QRCodeGenerator.ECCLevel.M);
+            Bitmap bitmap = new QRCode(qRCodeData).GetGraphic(5);
+            ImageConverter converter = new ImageConverter();
+            return (byte[])converter.ConvertTo(bitmap, typeof(byte[]));
+        }
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
 
@@ -278,6 +285,7 @@ namespace NewGoslingCinema
             {
                 MessageBox.Show("Корзина пуста!", "Ошибка", MessageBoxButton.OKCancel, MessageBoxImage.Stop);
             }
+            SetPrice();
         }
 
         private void SetPrice()

@@ -54,6 +54,12 @@ namespace NewGoslingCinema
                         Close();
 
                         break;
+                    case 2:
+
+                        Application.Current.MainWindow = new AdminWindow();
+                        Application.Current.MainWindow.Show();
+                        Close();
+                        break;
                 }
             }
             else

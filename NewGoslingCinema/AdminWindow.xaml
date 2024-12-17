@@ -6,14 +6,26 @@
         xmlns:xc="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:NewGoslingCinema"
         mc:Ignorable="d"
-        Title="AdminWindow" Height="380" Width="548">
+        Title="AdminWindow" Height="405" Width="571">
     <Grid>
-        <xc:DateTimePicker x:Name="DateTimer" Margin="299,10,10,218" TimeFormat="ShortTime" TimeFormatString="t">
-
-        </xc:DateTimePicker>
-        <ListBox x:Name="FilmList" Margin="299,151,10,47"/>
-        <DataGrid ItemsSource="{Binding}" SelectionMode="Single" IsReadOnly="True" x:Name="Sessions" Margin="10,10,254,47"/>
-        <Button x:Name="Insert" Content="Добавить" HorizontalAlignment="Left" Margin="353,319,0,0" VerticalAlignment="Top" Width="128" Click="Insert_Click"/>
-        <Button x:Name="Delete" Content="Удалить" HorizontalAlignment="Left" Margin="88,317,0,0" VerticalAlignment="Top" Width="128" Click="Delete_Click"/>
+        <TabControl>
+            <TabItem Header="Добавление сеансов">
+                <Grid Background="#FFE5E5E5" Height="360">
+                    <xc:DateTimePicker x:Name="DateTimer" Margin="309,10,10,208" TimeFormat="ShortTime" TimeFormatString="t"/>
+                    <ListBox x:Name="FilmList" Margin="309,157,10,67"/>
+                    <DataGrid ItemsSource="{Binding}" SelectionMode="Single" IsReadOnly="True" x:Name="Sessions" Margin="10,10,274,67"/>
+                    <Button x:Name="Insert" Content="Добавить" HorizontalAlignment="Left" Margin="402,303,0,0" VerticalAlignment="Top" Width="80" Height="28" Click="Insert_Click"/>
+                    <Button x:Name="Delete" Content="Удалить" HorizontalAlignment="Left" Margin="110,303,0,0" VerticalAlignment="Top" Width="80" Height="28" Click="Delete_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Добавление администраторов">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="AdminGrid" ItemsSource="{Binding}" SelectionMode="Single" Margin="10,0,10,64" MouseEnter="AdminGrid_MouseEnter"/>
+                    <Button x:Name="AddAdmin" Content="Сохранить" HorizontalAlignment="Left" Margin="177,303,0,0" VerticalAlignment="Top" Width="80" Height="28" Click="AddAdmin_Click"/>
+                    <Button x:Name="DeleteAdmin" Content="Удалить" HorizontalAlignment="Left" Margin="331,302,0,0" Width="80" Click="DeleteAdmin_Click" Height="29" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Button x:Name="Exit" Content="Выход" HorizontalAlignment="Left" Margin="449,0,0,0" VerticalAlignment="Top" Width="97" Click="Exit_Click"/>
     </Grid>
 </Window>

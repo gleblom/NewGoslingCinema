@@ -9,8 +9,10 @@ namespace NewGoslingCinema
     {
         public static string url = "https://www.kinoafisha.info/person/8004002/";
         public static List<string> ImgUrl = new List<string>();
+
         public static HtmlDocument GetDocument(string url)
         {
+
             HtmlWeb web = new HtmlWeb();
             HtmlDocument doc = web.Load(url);
             return doc;
@@ -38,15 +40,15 @@ namespace NewGoslingCinema
             {
                 if (i != 21)
                 {
-                    HtmlDocument doc = GetDocument(url);
-                    var xpath = "//a[contains(@class, 'postersList_item grid_cell3')]";
-                    var img = doc.DocumentNode.SelectSingleNode(xpath).Attributes["href"].Value;
+                    //HtmlDocument doc = GetDocument(url);
+                    //var xpath = "//a[contains(@class, 'postersList_item grid_cell3')]";
+                    //var img = doc.DocumentNode.SelectSingleNode(xpath).Attributes["href"].Value;
                     BitmapImage bitmap = new BitmapImage();
                     bitmap.BeginInit();
-                    bitmap.UriSource = new Uri(img, UriKind.Absolute);
+                    bitmap.UriSource = new Uri(url, UriKind.Absolute);
                     bitmap.EndInit();
                     films[i].image = bitmap;
-                    films[i].url = img;
+                    films[i].url = url;
                     i++;
                 }
 
@@ -70,6 +72,20 @@ namespace NewGoslingCinema
             }
             return filmLinks;
         }
+
+        //public static void ParseImage(List<string> urls)
+        //{
+        //    foreach (var url in urls)
+        //    {
+        //        HtmlDocument document = GetDocument(url);
+        //        var imgs = "//div[contains(@class, 'newFilmInfo_posterSlide swiper-slide')]/picture/img";
+        //        var imgUrl = document.DocumentNode.SelectSingleNode(imgs).Attributes["src"].Value;
+        //        //var imgUrl = document.DocumentNode.SelectSingleNode(imgs).Attributes["srcset"].Value;
+        //        var baseUri = new Uri(url);
+        //        ImgUrl.Add(new Uri(baseUri, imgUrl).AbsoluteUri);
+        //    }
+
+        //}
         public static void GetFilmDetails(List<string> urls, List<Film> films)
         {
             int i = 0;
@@ -78,13 +94,17 @@ namespace NewGoslingCinema
                 if (i != 21)
                 {
                     HtmlDocument document = GetDocument(url);
-                    var imgs = "//a[contains(@data-subcontent-btn, 'posters')]";
-                    var imgUrl = document.DocumentNode.SelectSingleNode(imgs).Attributes["href"].Value;
+                    //var imgs = "//a[contains(@data-subcontent-btn, 'posters')]";
+                    //var imgUrl = document.DocumentNode.SelectSingleNode(imgs).Attributes["href"].Value;
+                    //var baseUri = new Uri(url);
+                    //ImgUrl.Add(new Uri(baseUri, imgUrl).AbsoluteUri);
+                    var imgs = "//div[contains(@class, 'newFilmInfo_posterSlide swiper-slide')]/picture/img";
+                    var imgUrl = document.DocumentNode.SelectSingleNode(imgs).Attributes["src"].Value;
                     var baseUri = new Uri(url);
                     ImgUrl.Add(new Uri(baseUri, imgUrl).AbsoluteUri);
-                    var gen = "//span[contains(@class, 'filmInfo_genreItem button-main')]";
+                    var gen = "//span[contains(@class, 'newFilmInfo_genreItem button-default')]";
                     films[i].genre = document.DocumentNode.SelectSingleNode(gen).InnerText;
-                    var year = "//span[contains(@class, 'filmInfo_infoData')]";
+                    var year = "//span[contains(@class, 'newFilmInfo_infoData')]";
                     var nodes = document.DocumentNode.SelectNodes(year);
                     foreach (var node in nodes)
                     {

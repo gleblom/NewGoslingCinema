@@ -177,3 +177,7 @@ C:\Users\glebl\source\repos\NewGoslingCinema\NewGoslingCinema\bin\Debug\net5.0-w
 C:\Users\glebl\source\repos\NewGoslingCinema\NewGoslingCinema\bin\Debug\net5.0-windows\Newtonsoft.Json.dll
 C:\Users\glebl\source\repos\NewGoslingCinema\NewGoslingCinema\bin\Debug\net5.0-windows\BouncyCastle.Cryptography.dll
 C:\Users\glebl\source\repos\NewGoslingCinema\NewGoslingCinema\bin\Debug\net5.0-windows\itext.bouncy-castle-adapter.dll
+C:\Users\glebl\source\repos\NewGoslingCinema\NewGoslingCinema\bin\Debug\net5.0-windows\QRCoder.dll
+C:\Users\glebl\source\repos\NewGoslingCinema\NewGoslingCinema\bin\Debug\net5.0-windows\System.Drawing.Common.dll
+C:\Users\glebl\source\repos\NewGoslingCinema\NewGoslingCinema\bin\Debug\net5.0-windows\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\glebl\source\repos\NewGoslingCinema\NewGoslingCinema\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
