@@ -46,6 +46,8 @@ namespace NewGoslingCinema
                     BitmapImage bitmap = new BitmapImage();
                     bitmap.BeginInit();
                     bitmap.UriSource = new Uri(url, UriKind.Absolute);
+                    bitmap.DecodePixelWidth = 200;
+                    bitmap.DecodePixelHeight = 300;
                     bitmap.EndInit();
                     films[i].image = bitmap;
                     films[i].url = url;
